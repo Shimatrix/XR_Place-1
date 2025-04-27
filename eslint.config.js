@@ -1,28 +1,83 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
+// eslint.config.js
+import js from '@eslint/js';
+import reactPlugin from 'eslint-plugin-react';
+import typescriptEslintPlugin from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
+import prettierPlugin from 'eslint-plugin-prettier';
+import prettierConfig from 'eslint-config-prettier';
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+export default [
+  js.configs.recommended,
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
+    // Настройки для TypeScript и React
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parser: typescriptParser,
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+        ecmaVersion: 2018,
+        sourceType: 'module'
+      },
+      globals: {
+        document: 'readonly',
+        window: 'readonly'
+      }
     },
     plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
+      react: reactPlugin,
+      '@typescript-eslint': typescriptEslintPlugin,
+      prettier: prettierPlugin
     },
     rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
+      'prettier/prettier': ['warn', { usePrettierrc: true }],
+      'react/react-in-jsx-scope': 'off',
+      'comma-dangle': 'off',
+      'use-isnan': ['error', { enforceForSwitchCase: true }],
+      'react/void-dom-elements-no-children': 'warn',
+      'react/no-unsafe': 'warn',
+      'react/no-unused-state': 'warn',
+      'react/prefer-stateless-function': 'warn',
+      'react/self-closing-comp': 'warn',
+      'react/no-will-update-set-state': 'warn',
+      'react/no-this-in-sfc': 'warn',
+      'react/no-string-refs': 'warn',
+      'react/no-redundant-should-component-update': 'warn',
+      'react/jsx-boolean-value': ['warn', 'never'],
+      'react/jsx-key': 'warn',
+      'react/jsx-max-props-per-line': ['warn', { maximum: 7 }],
+      'react/jsx-max-depth': ['warn', { max: 8 }],
+      'arrow-body-style': ['warn', 'as-needed'],
+      'dot-notation': 'warn',
+      'jsx-quotes': ['warn', 'prefer-single'],
+      'valid-typeof': 'warn',
+      '@typescript-eslint/member-ordering': [
         'warn',
-        { allowConstantExport: true },
-      ],
+        {
+          default: [
+            'private-static-field',
+            'protected-static-field',
+            'public-static-field',
+            'private-static-method',
+            'protected-static-method',
+            'public-static-method',
+            'private-constructor',
+            'protected-constructor',
+            'public-constructor',
+            'private-instance-field',
+            'protected-instance-field',
+            'public-instance-field',
+            'private-instance-method',
+            'protected-instance-method',
+            'public-instance-method'
+          ]
+        }
+      ]
     },
+    settings: {
+      react: {
+        version: 'detect'
+      }
+    }
   },
-)
+  prettierConfig // Должен быть последним, чтобы переопределить конфликтующие правила
+];
