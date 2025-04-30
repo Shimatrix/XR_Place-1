@@ -1,60 +1,89 @@
+@import '../../../assets/styles/_variables.css';
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 100px;
-  border-bottom: 1px solid #ddd;
+  padding: 10px 100px 10px 95px;
+  box-sizing: border-box;
 }
 .menu {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 200px;
-}
-
-.logo {
+  gap: 145px;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 16px;
 
   a {
     text-decoration: none;
-    color: rgba(45, 45, 45, 1);
+    color: var(--text-black-opacity);
     font-weight: 400;
     font-size: 16px;
+    font-family: 'Inter', 'Helvetica', sans-serif;
+    line-height: 100%;
+    letter-spacing: -0.6px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
   }
 }
 
 .divider {
   width: 2px;
   height: 28px;
-  background-color: rgba(217, 217, 217, 1);
+  background-color: var(--text-white-opacity);
   display: inline-block;
+
+  &.firstDivider {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  &.secondDivider {
+    margin-left: 46px;
+    margin-right: 48px;
+  }
 }
 
 .languageSwitcher {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
+  .divider {
+    margin: 0 8px;
+  }
 }
 
 .activeDot {
-  width: 16px;
-  height: 16px;
-  background-color: rgba(5, 80, 66, 1);
+  width: 23px;
+  height: 23px;
+  background-color: var(--primary-opacity);
   border-radius: 50%;
+  margin-right: 20px;
 }
 
 .active {
-  color: rgba(45, 45, 45, 1);
+  color: var(--text-black-opacity);
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.64px;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
 
 .inactive {
-  color: rgba(135, 135, 135, 0.8);
+  color: var(--grey-opacity);
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.64px;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
