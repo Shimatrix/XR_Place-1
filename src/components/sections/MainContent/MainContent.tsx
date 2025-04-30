@@ -1,4 +1,5 @@
 import styles from './MainContent.module.scss';
+import { Title, TitleHighlight } from '../../ui/h2/Title';
 
 export function MainContent() {
   return (
@@ -10,7 +11,9 @@ export function MainContent() {
       </section>
 
       <section className={styles.features}>
-        <h2>Наши преимущества</h2>
+        <Title label='сотрудничество'>
+          Реализованые <TitleHighlight>проекты</TitleHighlight>
+        </Title>
         <div className={styles.featuresGrid}>
           <div className={styles.featureCard}>
             <h3>Вид из окна</h3>
