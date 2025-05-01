@@ -19,9 +19,21 @@ export function Header() {
 
         <div className={styles.languageSwitcher}>
           <div className={styles.activeDot} />
-          <span className={styles.inactive}>EN</span>
+          <button
+            className={styles.inactive}
+            type='button'
+            aria-label='Switch to English'
+          >
+            EN
+          </button>
           <span className={styles.divider} />
-          <span className={styles.active}>RU</span>
+          <button
+            className={styles.active}
+            type='button'
+            aria-label='Переключить на русский'
+          >
+            RU
+          </button>
         </div>
       </div>
     </header>

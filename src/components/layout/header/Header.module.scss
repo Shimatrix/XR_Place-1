@@ -6,6 +6,8 @@
   justify-content: space-between;
   padding: 10px 100px 10px 95px;
   box-sizing: border-box;
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  font-size: 16px;
 }
 .menu {
   display: flex;
@@ -23,8 +25,8 @@
     text-decoration: none;
     color: var(--text-black-opacity);
     font-weight: 400;
-    font-size: 16px;
-    font-family: 'Inter', 'Helvetica', sans-serif;
+    font-family: inherit;
+    font-size: inherit;
     line-height: 100%;
     letter-spacing: -0.6px;
     text-align: center;
@@ -56,6 +58,14 @@
   .divider {
     margin: 0 8px;
   }
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+  }
 }
 
 .activeDot {
@@ -68,9 +78,9 @@
 
 .active {
   color: var(--text-black-opacity);
-  font-family: 'Inter', 'Helvetica', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-family: inherit;
+  font-size: inherit;
   line-height: 100%;
   letter-spacing: -0.64px;
   vertical-align: middle;
@@ -79,9 +89,9 @@
 
 .inactive {
   color: var(--grey-opacity);
-  font-family: 'Inter', 'Helvetica', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-family: inherit;
+  font-size: inherit;
   line-height: 100%;
   letter-spacing: -0.64px;
   vertical-align: middle;
