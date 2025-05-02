@@ -1,5 +1,5 @@
 import styles from './Layout.module.scss';
-// import { Header } from './header/Header';
+import { Header } from './header/Header';
 // import { Footer } from './footer/Footer';
 import React from 'react';
 
@@ -10,7 +10,7 @@ type LayoutProps = {
 export function Layout({ children }: LayoutProps) {
   return (
     <div className={styles.layout}>
-      {/* <Header /> */}
+      <Header />
       <main className={styles.mainContent}>{children}</main>
       {/* <Footer /> */}
     </div>
