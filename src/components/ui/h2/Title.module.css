@@ -3,6 +3,7 @@
   align-items: flex-start;
   gap: 206px;
   width: 610px;
+  margin-left: 100px;
 }
 
 .label {
@@ -13,14 +14,18 @@
   gap: 10px;
   border-radius: 30px;
   border: 1px solid var(--primary, #055042);
-  font-family: Inter;
-  font-size: 14px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%; /* 20px */
+  text-transform: uppercase;
   color: var(--primary, #055042);
 }
 
 .heading {
   color: var(--text-black, #2d2d2d);
-  font-family: Inter;
+  font-family: 'Inter', sans-serif;
   font-size: 64px;
   font-weight: 300;
   line-height: 100%;
