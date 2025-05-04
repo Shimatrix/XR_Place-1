@@ -1,10 +1,14 @@
 import { Layout } from './ui';
-import { MainContent } from './sections/MainContent/MainContent';
+import { CardsBlock } from './sections/cardProject/cardBlock';
+import { XRPlace } from './sections/xrPlace/XrPlace';
+import { BusinessTeam } from './sections/BusinessTeam/BusinessTeam';
 
 export function App() {
   return (
     <Layout>
-      <MainContent />
+      <XRPlace />
+      <CardsBlock />
+      <BusinessTeam />
     </Layout>
   );
 }
