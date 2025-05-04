@@ -1,59 +1,10 @@
 import styles from './Footer.module.scss';
-import arrow from '../../../assets/images/arrow.svg'
 
 export function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.start_button}>
-        <button>В начало 
-          <img src={arrow} alt='Стрелка'/>
-        </button>        
-      </div>
-      <div className={styles.footer_content}>     
-      <div className={`${styles.footer_section} ${styles.contacts_section}`}>
-        <h3 >Контакты</h3>
-        <p>Melikishvili str. 92/16 
-        <br /> 6004 Batumi, Georgia 
-        <br /> Copyright ©2024 XR Place</p>
-      </div>
-
-      <div className={`${styles.footer_section} ${styles.menu_section}`}>
-        <h3>Меню</h3>
-        <ul className={styles.menu_list}>
-          <li>
-            <a href='#'>О компании</a>
-          </li>
-          <li>
-            <a href='#'>Как это работает</a>
-          </li>
-          <li>
-            <a href='#'>Возможности</a>
-          </li>
-          <li>
-            <a href='#'>Назначить ДЕМО</a>
-          </li>          
-        </ul>
-      </div>
-      <div className={`${styles.footer_section} ${styles.social_section}`}>
-        <h3>Соцсети</h3>
-        <ul className={styles.social_list}>
-          <li>
-            <a href='#'>hello@xrlace.io</a>
-          </li>
-          <li>
-            <a href='#'>Instagram</a>
-          </li>
-          <li>
-            <a href='#'>LinkedIn</a>
-          </li>
-        </ul>
-      </div>
-      </div>      
-      <div className={styles.lable}>
-        XR Place
-      </div>
-      <div className={styles.data_cooki_container}>
-        <p>© 2025 XRPlace. Все права защищены</p>
+      <div className={styles.container}>
+        <p>© 2024 XRPlace. Все права защищены</p>
         <div className={styles.links}>
           <a href='#'>Политика конфиденциальности</a>
           <a href='#'>Условия использования</a>
