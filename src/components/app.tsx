@@ -1,10 +1,10 @@
 import { Layout } from './ui';
-import { CardsBlock } from './sections/cardProject/cardBlock';
+import { MainContent } from './sections/MainContent/MainContent';
 
 export function App() {
   return (
     <Layout>
-      <CardsBlock />
+      <MainContent />
     </Layout>
   );
 }
