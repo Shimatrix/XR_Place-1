@@ -1,35 +1,99 @@
-.header {
-  background: #2c3e50;
-  color: white;
-  padding: 1rem 0;
-}
+@import '../../../assets/styles/_variables.css';
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.header {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 100px 10px 95px;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Helvetica', sans-serif;
+  font-size: 16px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
-
-.logo {
-  margin: 0;
-  font-size: 1.5rem;
+  gap: 145px;
 }
 
 .nav {
   display: flex;
-  gap: 20px;
+  align-items: center;
 
   a {
-    color: white;
     text-decoration: none;
-    transition: opacity 0.3s;
-
-    &:hover {
-      opacity: 0.8;
-    }
+    color: var(--text-black-opacity);
+    font-weight: 400;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: 100%;
+    letter-spacing: -0.6px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
   }
+}
+
+.divider {
+  width: 2px;
+  height: 28px;
+  background-color: var(--text-white-opacity);
+  display: inline-block;
+
+  &.firstDivider {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  &.secondDivider {
+    margin-left: 46px;
+    margin-right: 48px;
+  }
+}
+
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  .divider {
+    margin: 0 8px;
+  }
+  button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+  }
+}
+
+.activeDot {
+  width: 23px;
+  height: 23px;
+  background-color: var(--primary-opacity);
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.active {
+  color: var(--text-black-opacity);
+  font-weight: 400;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 100%;
+  letter-spacing: -0.64px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+.inactive {
+  color: var(--grey-opacity);
+  font-weight: 300;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 100%;
+  letter-spacing: -0.64px;
+  vertical-align: middle;
+  text-transform: uppercase;
 }
