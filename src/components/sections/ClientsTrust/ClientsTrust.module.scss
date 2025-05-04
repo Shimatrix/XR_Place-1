@@ -4,7 +4,9 @@
   background-color: var(--ui-white);
   box-sizing: border-box;
   font-family: var(--font-inter);
-  max-height: 100vh;
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .header {
