@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import {
   BusinessTeamSectionTitle,
   BusinessTeamTitleHighlight
@@ -5,155 +6,146 @@ import {
 
 import styles from './BusinessTeam.module.scss';
 
-export const BusinessTeam = () => (
-  <section className={styles.businessTeam}>
-    <BusinessTeamSectionTitle label='Кто мы'>
-      БИЗНЕС <BusinessTeamTitleHighlight>КОМАНДА</BusinessTeamTitleHighlight>
-    </BusinessTeamSectionTitle>
+export const BusinessTeam = () => {
+  const { t } = useTranslation();
 
-    {/* ДЕСКТОП */}
-    <div className={styles.desktopLayoutWrapper}>
-      <div className={styles.desktopGrid}>
-        <div className={styles.left}>
-          <div className={styles.teamCard}>
-            <img
-              src='../src/assets/images/artem.jpg'
-              alt='фотография Артёма Тарханова'
-              className={styles.avatar}
-            />
-            <div className={styles.cardDescription}>
-              <div className={styles.name}>Артём Тарханов</div>
-              <div className={styles.role}>Co-founder & CEO</div>
+  return (
+    <section className={styles.businessTeam}>
+      <BusinessTeamSectionTitle label={t('team.sectionLabel')}>
+        {t('team.sectionTitle').split(' ')[0]}{' '}
+        <BusinessTeamTitleHighlight>
+          {t('team.sectionTitle').split(' ')[1]}
+        </BusinessTeamTitleHighlight>
+      </BusinessTeamSectionTitle>
+
+      {/* ДЕСКТОП */}
+      <div className={styles.desktopLayoutWrapper}>
+        <div className={styles.desktopGrid}>
+          <div className={styles.left}>
+            <div className={styles.teamCard}>
+              <img
+                src='../src/assets/images/artem.jpg'
+                alt='фотография Артёма Тарханова'
+                className={styles.avatar}
+              />
+              <div className={styles.cardDescription}>
+                <div className={styles.name}>{t('team.member1.name')}</div>
+                <div className={styles.role}>{t('team.member1.role')}</div>
+              </div>
+              <img
+                src='../src/assets/images/Group.svg'
+                alt='декоративный элемент векторной графики в виде абстрактных линий'
+                className={`${styles.decor} ${styles.decorLeftCard}`}
+              />
+              <img
+                src='../src/assets/images/square.svg'
+                alt='декоративный элемент векторной графики в виде точек, составляющих фигуру квадрат'
+                className={`${styles.decor} ${styles.decorSquare}`}
+              />
             </div>
-            <img
-              src='../src/assets/images/Group.svg'
-              alt='декоративный элемент векторной графики в виде абстрактных линий'
-              className={`${styles.decor} ${styles.decorLeftCard}`}
-            />
-            <img
-              src='../src/assets/images/square.svg'
-              alt='декоративный элемент векторной графики в виде точек, составляющих фигуру квадрат'
-              className={`${styles.decor} ${styles.decorSquare}`}
-            />
+
+            <div className={styles.closingStatementWrapper}>
+              <p className={styles.closingStatementText}>
+                {t('team.closingText')}
+              </p>
+            </div>
           </div>
 
-          <div className={styles.closingStatementWrapper}>
-            <p className={styles.closingStatementText}>
-              С нами вы получите не только продукт, но и партнёрство, основанное
-              на доверии и взаимопонимании.
-            </p>
-          </div>
-        </div>
-
-        <div className={styles.right}>
-          <div className={styles.teamTextBlock}>
-            <p>
-              Мы понимаем, что каждая компания уникальна, поэтому мы работаем в
-              тесном сотрудничестве с нашими клиентами, чтобы создавать
-              индивидуальные решения, которые отвечают их потребностям.
-            </p>
-            <p>
-              Наша команда не только разрабатывает технологии, но и обеспечивает
-              поддержку на каждом этапе сотрудничества.
-            </p>
-          </div>
-
-          <div className={styles.teamCard}>
-            <img
-              src='../src/assets/images/victor.jpg'
-              alt='фотография Виктора Карнеева'
-              className={`${styles.avatar} ${styles.avatarRight}`}
-            />
-            <div
-              className={`${styles.cardDescription} ${styles.cardDescriptionRight}`}
-            >
-              <div className={styles.name}>Виктор Карнеев</div>
-              <div className={styles.role}>
-                Co-founder & Production Director
+          <div className={styles.right}>
+            <div className={styles.teamTextBlock}>
+              <div className={styles.topParagraph}>
+                <p>{t('team.member1.about1')}</p>
+              </div>
+              <div className={styles.bottomParagraph}>
+                <p>{t('team.member1.about2')}</p>
               </div>
             </div>
-            <img
-              src='../src/assets/images/GroupTwo.svg'
-              alt='декоративный элемент векторной графики в виде абстрактных линий'
-              className={`${styles.decor} ${styles.decorRightCard}`}
-            />
-            <img
-              src='../src/assets/images/circle.svg'
-              alt='декоративный элемент векторной графики в виде точек, составляющих фигуру круг'
-              className={`${styles.decor} ${styles.decorCircle}`}
-            />
+
+            <div className={styles.teamCard}>
+              <img
+                src='../src/assets/images/victor.jpg'
+                alt='фотография Виктора Карнеева'
+                className={`${styles.avatar} ${styles.avatarRight}`}
+              />
+              <div
+                className={`${styles.cardDescription} ${styles.cardDescriptionRight}`}
+              >
+                <div className={styles.name}>{t('team.member2.name')}</div>
+                <div className={styles.role}>{t('team.member2.role')}</div>
+              </div>
+              <img
+                src='../src/assets/images/GroupTwo.svg'
+                alt='декоративный элемент векторной графики в виде абстрактных линий'
+                className={`${styles.decor} ${styles.decorRightCard}`}
+              />
+              <img
+                src='../src/assets/images/circle.svg'
+                alt='декоративный элемент векторной графики в виде точек, составляющих фигуру круг'
+                className={`${styles.decor} ${styles.decorCircle}`}
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    {/* МОБИЛКА */}
-    <div className={styles.mobileLayout}>
-      <div className={styles.teamTextBlock}>
-        <p>
-          Мы понимаем, что каждая компания уникальна, поэтому мы работаем в
-          тесном сотрудничестве с нашими клиентами, чтобы создавать
-          индивидуальные решения, которые отвечают их потребностям.
-        </p>
-      </div>
-
-      <div className={styles.teamCard}>
-        <img
-          src='../src/assets/images/artem.jpg'
-          alt='фотография Артёма Тарханова'
-          className={styles.avatar}
-        />
-        <div className={styles.cardDescription}>
-          <div className={styles.name}>Артём Тарханов</div>
-          <div className={styles.role}>Co-founder & CEO</div>
+      {/* МОБИЛКА */}
+      <div className={styles.mobileLayout}>
+        <div className={styles.teamTextBlock}>
+          <p>{t('team.member1.about1')}</p>
         </div>
-        <img
-          src='../src/assets/images/GroupOneMobile.svg'
-          alt='декоративный элемент векторной графики в виде в виде абстрактных линий'
-          className={`${styles.decor} ${styles.decorLeftCard}`}
-        />
-        <img
-          src='../src/assets/images/rectangle.svg'
-          alt='декоративный элемент векторной графики в виде в виде точек, составляющих фигуру прямоугольник'
-          className={`${styles.decor} ${styles.decorRectangle}`}
-        />
-      </div>
 
-      <div className={styles.teamTextBlock}>
-        <p>
-          Наша команда не только разрабатывает технологии, но и обеспечивает
-          поддержку на каждом этапе сотрудничества.
-        </p>
-      </div>
-
-      <div className={styles.teamCard}>
-        <img
-          src='../src/assets/images/victor.jpg'
-          alt='фотография Виктора Карнеева'
-          className={styles.avatar}
-        />
-        <div className={styles.cardDescription}>
-          <div className={styles.name}>Виктор Карнеев</div>
-          <div className={styles.role}>Co-founder & Production Director</div>
+        <div className={styles.teamCard}>
+          <img
+            src='../src/assets/images/artem.jpg'
+            alt='фотография Артёма Тарханова'
+            className={styles.avatar}
+          />
+          <div className={styles.cardDescription}>
+            <div className={styles.name}>{t('team.member1.name')}</div>
+            <div className={styles.role}>{t('team.member1.role')}</div>
+          </div>
+          <img
+            src='../src/assets/images/GroupOneMobile.svg'
+            alt='декоративный элемент векторной графики в виде в виде абстрактных линий'
+            className={`${styles.decor} ${styles.decorLeftCard}`}
+          />
+          <img
+            src='../src/assets/images/rectangle.svg'
+            alt='декоративный элемент векторной графики в виде в виде точек, составляющих фигуру прямоугольник'
+            className={`${styles.decor} ${styles.decorRectangle}`}
+          />
         </div>
-        <img
-          src='../src/assets/images/GroupTwoMobile.svg'
-          alt='декоративный элемент векторной графики в виде в виде абстрактных линий'
-          className={`${styles.decor} ${styles.decorRightCard}`}
-        />
-        <img
-          src='../src/assets/images/circle.svg'
-          alt='декоративный элемент векторной графики в виде в виде точек, составляющих фигуру круг'
-          className={`${styles.decor} ${styles.decorCircle}`}
-        />
-      </div>
 
-      <div className={styles.closingStatementWrapper}>
-        <p className={styles.closingStatementText}>
-          С нами вы получите не только продукт, но и партнёрство, основанное на
-          доверии и взаимопонимании.
-        </p>
+        <div className={styles.teamTextBlock}>
+          <p>{t('team.member1.about2')}</p>
+        </div>
+
+        <div className={styles.teamCard}>
+          <img
+            src='../src/assets/images/victor.jpg'
+            alt='фотография Виктора Карнеева'
+            className={styles.avatar}
+          />
+          <div className={styles.cardDescription}>
+            <div className={styles.name}>{t('team.member2.name')}</div>
+            <div className={styles.role}>{t('team.member2.role')}</div>
+          </div>
+          <img
+            src='../src/assets/images/GroupTwoMobile.svg'
+            alt='декоративный элемент векторной графики в виде в виде абстрактных линий'
+            className={`${styles.decor} ${styles.decorRightCard}`}
+          />
+          <img
+            src='../src/assets/images/circle.svg'
+            alt='декоративный элемент векторной графики в виде в виде точек, составляющих фигуру круг'
+            className={`${styles.decor} ${styles.decorCircle}`}
+          />
+        </div>
+
+        <div className={styles.closingStatementWrapper}>
+          <p className={styles.closingStatementText}>{t('team.closingText')}</p>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

@@ -18,7 +18,7 @@
   border-radius: 30px;
   border: 1px solid var(--primary, #055042);
   font-family: Inter;
-  font-size: 14px;
+  font-size: var(--text-m);
   color: var(--primary, #055042);
   text-transform: uppercase;
   margin-bottom: 40px;

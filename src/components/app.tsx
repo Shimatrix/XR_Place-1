@@ -1,4 +1,5 @@
 import { Layout } from './ui';
+// import { useTranslation } from 'react-i18next';
 import { CardsBlock } from './sections/cardProject/cardBlock';
 import { XRPlace } from './sections/xrPlace/XrPlace';
 import { BusinessTeam } from './sections/BusinessTeam/BusinessTeam';

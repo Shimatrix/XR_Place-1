@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Title, TitleHighlight } from '../../ui/h2/Title';
 import { Card } from '../../ui/card/card';
 import { mockCards, CardData } from '../../../mocks/cardData';
@@ -7,6 +8,7 @@ import { ArrowLeft } from '../../ui/arrow/ArrowLeft';
 import { ArrowRight } from '../../ui/arrow/ArrowRight';
 
 export const CardsBlock = () => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cards] = useState<CardData[]>(mockCards);
 
@@ -18,11 +20,21 @@ export const CardsBlock = () => {
     setCurrentIndex((prev) => (prev - 1 + cards.length) % cards.length);
   };
 
+  // Определяем карточку
+  const currentCard = cards[currentIndex];
+
+  // Пробуем перевести, если ключ есть, иначе отображаем оригинальный текст
+  const translateIfExists = (key: string, fallback: string) => {
+    const translation = t(key);
+    return translation === key ? fallback : translation;
+  };
+
   return (
     <div className={styles.block}>
       <div className={styles.headerContainer}>
-        <Title label='сотрудничество'>
-          Реализованые <TitleHighlight>проекты</TitleHighlight>
+        <Title label={t('projects.label')}>
+          {t('projects.title.regular')}{' '}
+          <TitleHighlight>{t('projects.title.highlight')}</TitleHighlight>
         </Title>
 
         <div className={styles.controls}>
@@ -30,7 +42,7 @@ export const CardsBlock = () => {
             onClick={prevSlide}
             className={styles.arrowButton}
             disabled={currentIndex === 0}
-            aria-label='Назад'
+            aria-label={t('common.back', 'Назад')}
           >
             <ArrowLeft />
           </button>
@@ -39,7 +51,7 @@ export const CardsBlock = () => {
             onClick={nextSlide}
             className={styles.arrowButton}
             disabled={currentIndex === cards.length - 1}
-            aria-label='Вперед'
+            aria-label={t('common.forward', 'Вперед')}
           >
             <ArrowRight />
           </button>
@@ -48,10 +60,16 @@ export const CardsBlock = () => {
 
       <div className={styles.cardContainer}>
         <Card
-          key={cards[currentIndex].id}
-          imageUrl={cards[currentIndex].imageUrl}
-          captionLine1={cards[currentIndex].captionLine1}
-          captionLine2={cards[currentIndex].captionLine2}
+          key={currentCard.id}
+          imageUrl={currentCard.imageUrl}
+          captionLine1={translateIfExists(
+            `projects.card${currentCard.id}.title`,
+            currentCard.captionLine1
+          )}
+          captionLine2={translateIfExists(
+            `projects.card${currentCard.id}.desc`,
+            currentCard.captionLine2
+          )}
         />
       </div>
     </div>
