@@ -1,10 +1,19 @@
 import { Layout } from './ui';
-import { MainContent } from './sections/MainContent/MainContent';
+import { CardsBlock } from './sections/cardProject/cardBlock';
+import { XRPlace } from './sections/xrPlace/XrPlace';
+import { BusinessTeam } from './sections/BusinessTeam/BusinessTeam';
+import { ClientsTrust } from './sections/ClientsTrust/ClientsTrust';
+import { WidgetSection } from './sections/Widget/Widget';
+import 'react-phone-number-input/style.css';
 
 export function App() {
   return (
     <Layout>
-      <MainContent />
+      <XRPlace />
+      <ClientsTrust />
+      <CardsBlock />
+      <BusinessTeam />
+      <WidgetSection />
     </Layout>
   );
 }
