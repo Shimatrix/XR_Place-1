@@ -4,6 +4,7 @@ import { XRPlace } from './sections/xrPlace/XrPlace';
 import { BusinessTeam } from './sections/BusinessTeam/BusinessTeam';
 import { ClientsTrust } from './sections/ClientsTrust/ClientsTrust';
 import { WidgetSection } from './sections/Widget/Widget';
+import 'react-phone-number-input/style.css';
 
 export function App() {
   return (
