@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import style from './XrPlace.module.css';
 import heroImg from '../../../assets/images/Frame.png';
 import { UIButton } from '../../ui/button/button';
 import { useTranslation } from 'react-i18next';
+import { ModalWindow } from '../../ModalDemo/ModalDemo';
 
 export function XRPlace() {
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className={style.block}>
@@ -21,7 +24,14 @@ export function XRPlace() {
       <div className={style.content}>
         <div className={style.left_block}>
           <p className={style.text}>{t('hero.description')}</p>
-          <UIButton text={t('hero.button')} />
+          <UIButton
+            text={t('hero.button')}
+            onClick={() => setIsModalOpen(true)}
+          />
+          <ModalWindow
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
         </div>
         <div className={style.right_block}>
           <span className={style.text_label}>place for business</span>

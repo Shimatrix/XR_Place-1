@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import style from './ModalDemo.module.css';
 import { UIButton } from '../ui/button/button';
 import done from '../../assets/images/done.svg';
+import { useTranslation } from 'react-i18next';
 
 interface FormData {
   name: string;
@@ -15,6 +18,7 @@ export const ModalWindow: React.FC<{
   isOpen: boolean;
   onClose: () => void;
 }> = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -22,13 +26,15 @@ export const ModalWindow: React.FC<{
     telegram: '',
     agree: false
   });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [isValid, setIsValid] = useState(false);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     },
     [onClose]
   );
@@ -51,38 +57,89 @@ export const ModalWindow: React.FC<{
         telegram: '',
         agree: false
       });
+      setErrors({});
+      setTouched({});
       setIsSubmitted(false);
     }
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const validate = (data: FormData) => {
+    const newErrors: Record<string, string> = {};
+
+    if (!data.phone || !isValidPhoneNumber(data.phone)) {
+      newErrors.phone = t('errors.phone');
+    }
+
+    if (!/^https:\/\/t\.me\/[a-zA-Z0-9_]{5,}$/.test(data.telegram)) {
+      newErrors.telegram = t('errors.telegram');
+    }
+
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      newErrors.email = t('errors.email');
+    }
+
+    if (!data.name.trim()) {
+      newErrors.name = t('errors.name');
+    }
+
+    if (!data.agree) {
+      newErrors.agree = t('errors.agree');
+    }
+
+    return newErrors;
+  };
+
+  useEffect(() => {
+    const currentErrors = validate(formData);
+    setIsValid(Object.keys(currentErrors).length === 0);
+  }, [formData]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type } = e.target;
     const checked =
       type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
 
-    setFormData((prev) => ({
-      ...prev,
+    const updatedData = {
+      ...formData,
       [name]: type === 'checkbox' ? checked : value
-    }));
+    } as FormData;
+
+    setFormData(updatedData);
+    setTouched((prev) => ({ ...prev, [name]: true }));
+
+    const validationErrors = validate(updatedData);
+    setErrors(validationErrors);
+  };
+
+  const handlePhoneChange = (value?: string) => {
+    const updatedData = { ...formData, phone: value || '' };
+    setFormData(updatedData);
+    setTouched((prev) => ({ ...prev, phone: true }));
+    setErrors(validate(updatedData));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    const validationErrors = validate(formData);
+    setErrors(validationErrors);
+    setTouched({
+      name: true,
+      email: true,
+      phone: true,
+      telegram: true,
+      agree: true
+    });
+
+    if (Object.keys(validationErrors).length === 0) {
+      setIsSubmitted(true);
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent) => {
@@ -100,18 +157,14 @@ export const ModalWindow: React.FC<{
           <div className={style.thankYou}>
             <img className={style.done} src={done} alt='done' />
             <div className={style.thankYouTextBlock}>
-              <h3 className={style.title}>спасибо за ваше доверие</h3>
+              <h3 className={style.title}>{t('modal2.title')}</h3>
               <div className={style.thankYouText}>
-                <p>Контактные данные успешно отправлены.</p>
-                <p>
-                  Мы свяжемся с вами в ближайшее время, чтобы обсудить все
-                  детали и ответить на вопросы.
-                </p>
+                <p>{t('modal2.text')}</p>
               </div>
             </div>
             <div className={style.thankYouButtons}>
               <UIButton
-                text='На главную'
+                text={t('modal2.button')}
                 onClick={() => (window.location.href = '/')}
                 className={style.homeButton}
               />
@@ -120,93 +173,95 @@ export const ModalWindow: React.FC<{
         ) : (
           <div className={style.mainBlock}>
             <div className={style.blockTitle}>
-              <h3 className={style.title}>
-                Готовы поднять ваш бизнес на новый уровень?
-              </h3>
-              <p className={style.description}>
-                Используйте наш инновационный виджет для создания захватывающих
-                виртуальных туров и увеличьте интерес к вашим объектам.
-              </p>
+              <h3 className={style.title}>{t('modal1.title')}</h3>
+              <p className={style.description}>{t('modal1.description')}</p>
             </div>
             <form onSubmit={handleSubmit} className={style.form}>
               <div className={style.inputBlock}>
                 <div className={style.row}>
                   <div className={style.inputGroup}>
-                    <input
-                      type='tel'
-                      id='phone'
+                    <PhoneInput
                       name='phone'
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className={style.input}
+                      defaultCountry='RU'
                       placeholder='+ _ ( __ ) ___  __  -  __'
-                      required
+                      value={formData.phone}
+                      onChange={handlePhoneChange}
+                      className={style.input}
                     />
+                    {touched.phone && errors.phone && (
+                      <span className={style.error}>{errors.phone}</span>
+                    )}
                   </div>
                   <div className={style.inputGroup}>
                     <input
                       type='text'
-                      id='telegram'
                       name='telegram'
                       value={formData.telegram}
                       onChange={handleInputChange}
                       className={style.input}
-                      placeholder='https://t.me/'
-                      required
+                      placeholder='https://t.me/username'
                     />
+                    {touched.telegram && errors.telegram && (
+                      <span className={style.error}>{errors.telegram}</span>
+                    )}
                   </div>
                 </div>
                 <div className={style.row}>
                   <div className={style.inputGroup}>
                     <input
                       type='email'
-                      id='email'
                       name='email'
                       value={formData.email}
                       onChange={handleInputChange}
                       className={style.input}
-                      placeholder='email'
-                      required
+                      placeholder='Email'
                     />
+                    {touched.email && errors.email && (
+                      <span className={style.error}>{errors.email}</span>
+                    )}
                   </div>
                 </div>
                 <div className={style.row}>
                   <div className={style.inputGroup}>
                     <input
                       type='text'
-                      id='name'
                       name='name'
                       value={formData.name}
                       onChange={handleInputChange}
                       className={style.input}
-                      placeholder='Как вас зовут'
-                      required
+                      placeholder={t('modal1.namePlaceholder')}
                     />
+                    {touched.name && errors.name && (
+                      <span className={style.error}>{errors.name}</span>
+                    )}
                   </div>
                 </div>
               </div>
+
               <div className={style.checkboxRow}>
                 <input
                   type='checkbox'
-                  id='agree'
                   name='agree'
                   checked={formData.agree}
                   onChange={handleInputChange}
                   className={style.checkbox}
-                  required
                 />
                 <label htmlFor='agree' className={style.checkboxLabel}>
-                  Я принимаю условия{' '}
+                  {t('modal1.checkbox').split('Политики')[0]}
                   <a href='#' className={style.link}>
                     Политики обработки персональных данных
                   </a>
                 </label>
               </div>
+              {touched.agree && errors.agree && (
+                <span className={style.error}>{errors.agree}</span>
+              )}
+
               <UIButton
-                text='отправить данные'
+                text={t('modal1.button')}
                 type='submit'
-                className={`${style.button_demo}`}
-                disabled={!formData.agree}
+                className={style.button_demo}
+                disabled={!isValid}
               />
             </form>
             <button

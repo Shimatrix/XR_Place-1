@@ -117,7 +117,8 @@
       "How can I create content for a virtual tour?",
       "Is there a free trial available?",
       "How do I find out the cost of the widget?"
-    ]
+    ],
+    "answer": "Installing the widget is simple and only takes a few steps. Once you follow the necessary instructions, you will also have access to our technical support, which will help you at any stage of the installation."
   },
   "modal1": {
     "title": "Ready to elevate your business?",
@@ -125,6 +126,13 @@
     "namePlaceholder": "Your Name",
     "checkbox": "I accept the Privacy Policy terms",
     "button": "Submit Data"
+  },
+  "errors": {
+    "phone": "Please enter a valid phone number",
+    "telegram": "Please enter a valid Telegram link",
+    "email": "Please enter a valid email address",
+    "name": "Please enter your name",
+    "agree": "Agreement is required"
   },
   "modal2": {
     "title": "Thank You for Your Trust",
