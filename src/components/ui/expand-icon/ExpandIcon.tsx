@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import styles from './ExpandIcon.module.css';
 
 type ExpandIconProps = {
   isExpanded?: boolean;
@@ -10,7 +11,7 @@ export const ExpandIcon: FC<ExpandIconProps> = ({
   className = ''
 }) => (
   <svg
-    className={`transition-transform duration-200 ${className}`}
+    className={`${styles.icon} ${isExpanded ? styles.expanded : ''} ${className}`}
     width='50'
     height='50'
     viewBox='0 0 50 50'
