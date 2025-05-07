@@ -6,6 +6,7 @@ import { ClientsTrust } from './sections/ClientsTrust/ClientsTrust';
 import { WidgetSection } from './sections/Widget/Widget';
 import 'react-phone-number-input/style.css';
 import { CustomCursor } from './CustomCursor/CustomCursor';
+import { FAQBlock } from './sections/faq/FAQBlock';
 
 
 export function App() {
@@ -16,6 +17,7 @@ export function App() {
       <ClientsTrust />
       <CardsBlock />
       <BusinessTeam />
+      <FAQBlock />
       <WidgetSection />
     </Layout>
   );
