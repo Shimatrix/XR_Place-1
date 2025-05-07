@@ -31,7 +31,8 @@
     "i18next-http-backend": "^3.0.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-i18next": "^15.5.1"
+    "react-i18next": "^15.5.1",
+    "react-phone-number-input": "^3.4.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.1",
@@ -56,6 +57,7 @@
     "sass-embedded": "^1.87.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
-    "vite": "^6.3.1"
+    "vite": "^6.3.1",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }

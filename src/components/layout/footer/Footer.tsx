@@ -5,10 +5,17 @@ import arrow from '../../../assets/images/arrow.svg';
 export function Footer() {
   const { t } = useTranslation();
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.start_button}>
-        <button>
+        <button onClick={handleScrollToTop}>
           {t('footer.toTop')}
           <img src={arrow} alt='Стрелка' />
         </button>
