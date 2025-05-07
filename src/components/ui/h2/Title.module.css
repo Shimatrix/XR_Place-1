@@ -1,8 +1,9 @@
+@import '../../../assets/styles/_variables.css';
 .container {
   display: inline-flex;
   align-items: flex-start;
   gap: 206px;
-  width: 610px;
+  /* width: 610px; */
   margin-left: 100px;
 }
 
