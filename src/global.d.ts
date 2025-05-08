@@ -10,10 +10,16 @@ declare module '*.module.scss' {
 
 declare module '*.svg' {
   import React = require('react');
-  // eslint-disable-next-line no-undef
+
   export const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
   const src: string;
   export default src;
+}
+
+declare module '*.svg?react' {
+  import { FunctionComponent, SVGProps } from 'react';
+  const ReactComponent: FunctionComponent<SVGProps<SVGSVGElement>>;
+  export default ReactComponent;
 }
 
 declare module '*.png' {
