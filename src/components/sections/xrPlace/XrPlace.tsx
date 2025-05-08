@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import style from './XrPlace.module.css';
 import heroImg from '../../../assets/images/Frame.png';
 import { UIButton } from '../../ui/button/button';
+import { ModalWindow } from '../../ModalDemo/ModalDemo';
 
 export function XRPlace() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className={style.block}>
       <div className={style.vertical_line} />
@@ -21,11 +25,18 @@ export function XRPlace() {
             Удобные инструменты для презентации объектов: создавайте виртуальные
             туры с минимальными затратами времени и ресурсов
           </p>
-          <UIButton text='Назначить демо ' />
+          <UIButton
+            text='Назначить демо'
+            onClick={() => setIsModalOpen(true)}
+          />
+          <ModalWindow
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+          />
         </div>
         <div className={style.right_block}>
           <span className={style.text_label}>place for business</span>
-          <img className={style.img_label} src={heroImg} alt='3D картинка ' />
+          <img className={style.img_label} src={heroImg} alt='3D картинка' />
         </div>
       </div>
     </section>
