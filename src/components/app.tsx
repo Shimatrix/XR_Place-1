@@ -7,7 +7,9 @@ import { WidgetSection } from './sections/Widget/Widget';
 import 'react-phone-number-input/style.css';
 import { CustomCursor } from './CustomCursor/CustomCursor';
 import { FAQBlock } from './sections/faq/FAQBlock';
+import HowItWorks from './sections/how_it_works/HowItWorks';
 import { PartnersBlock } from './sections//PartnersBlock/PartnerBlock';
+
 
 export function App() {
   return (
@@ -17,6 +19,7 @@ export function App() {
       <PartnersBlock />
       <ClientsTrust />
       <CardsBlock />
+      <HowItWorks />
       <BusinessTeam />
       <FAQBlock />
       <WidgetSection />
