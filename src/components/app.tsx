@@ -8,12 +8,15 @@ import 'react-phone-number-input/style.css';
 import { CustomCursor } from './CustomCursor/CustomCursor';
 import { FAQBlock } from './sections/faq/FAQBlock';
 import HowItWorks from './sections/how_it_works/HowItWorks';
+import { PartnersBlock } from './sections//PartnersBlock/PartnerBlock';
+
 
 export function App() {
   return (
     <Layout>
       <CustomCursor />
       <XRPlace />
+      <PartnersBlock />
       <ClientsTrust />
       <CardsBlock />
       <HowItWorks />
