@@ -1,25 +1,10 @@
 import { Layout } from './ui';
-import { CardsBlock } from './sections/cardProject/cardBlock';
-import { XRPlace } from './sections/xrPlace/XrPlace';
-import { BusinessTeam } from './sections/BusinessTeam/BusinessTeam';
-import { ClientsTrust } from './sections/ClientsTrust/ClientsTrust';
-import { WidgetSection } from './sections/Widget/Widget';
-import 'react-phone-number-input/style.css';
-import { CustomCursor } from './CustomCursor/CustomCursor';
-import { FAQBlock } from './sections/faq/FAQBlock';
-import { PartnersBlock } from './sections//PartnersBlock/PartnerBlock';
+import { MainContent } from './sections/MainContent/MainContent';
 
 export function App() {
   return (
     <Layout>
-      <CustomCursor />
-      <XRPlace />
-      <PartnersBlock />
-      <ClientsTrust />
-      <CardsBlock />
-      <BusinessTeam />
-      <FAQBlock />
-      <WidgetSection />
+      <MainContent />
     </Layout>
   );
 }
