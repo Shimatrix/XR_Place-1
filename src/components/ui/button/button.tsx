@@ -8,6 +8,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   disabled?: boolean;
+  icon?: string | React.ReactNode;
 }
 
 export const UIButton: React.FC<ButtonProps> = ({
@@ -15,7 +16,8 @@ export const UIButton: React.FC<ButtonProps> = ({
   onClick,
   className = '',
   type = 'button',
-  disabled = false
+  disabled = false,
+  icon = arrow
 }) => (
   <button
     type={type}
@@ -24,8 +26,10 @@ export const UIButton: React.FC<ButtonProps> = ({
     disabled={disabled}
   >
     <span className={style.buttom_text}>{text}</span>
-    <span>
-      <img src={arrow} alt='arrow' />
-    </span>
+    {icon && (
+      <span>
+        {typeof icon === 'string' ? <img src={icon} alt='icon' /> : icon}
+      </span>
+    )}
   </button>
 );

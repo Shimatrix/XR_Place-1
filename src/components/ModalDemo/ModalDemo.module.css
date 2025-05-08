@@ -180,3 +180,57 @@
   letter-spacing: -0.4px;
   color: var(--TEXT-grey, #4d4d4d);
 }
+
+.invalid {
+  border: 1px solid #ff4d4f;
+  background-color: #fff1f0;
+  outline: none;
+}
+
+.error {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+  font-family: Inter, sans-serif;
+}
+
+.charCount {
+  font-size: 10px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.errorInput {
+  border: 1px solid red;
+  background-color: #fff0f0;
+}
+
+:global(.PhoneInput) {
+  background: #f1f4f7;
+  border-radius: 40px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+:global(.PhoneInputInput) {
+  background: transparent !important;
+  border: none !important;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  font-family: Inter, sans-serif;
+  color: inherit;
+  padding: 0;
+}
+
+:global(.PhoneInput--focus) {
+  box-shadow: none;
+}
+
+:global(.PhoneInputCountrySelect) {
+  background: transparent;
+  border: none;
+}
