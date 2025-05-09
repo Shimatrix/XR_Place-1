@@ -12,7 +12,7 @@ const features = [
 ];
 
 const AboutWidget: React.FC = () => (
-  <section className={styles.aboutWidgetBlock}>
+  <section id='about-widget' className={styles.aboutWidgetBlock}>
     <span className={styles.label}>ВИДЖЕТ</span>
     <h2 className={styles.title}>
       ЧТО <span className={styles.accent}>УМЕЕТ</span> ВИДЖЕТ

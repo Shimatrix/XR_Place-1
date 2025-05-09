@@ -2,6 +2,16 @@ import styles from './Header.module.scss';
 import logoImage from '../../../assets/images/logo.svg';
 
 export function Header() {
+  const handleScrollToSection = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -10,11 +20,26 @@ export function Header() {
 
       <div className={styles.menu}>
         <nav className={styles.nav}>
-          <a href='#'>О КОМПАНИИ</a>
+          <a
+            href='#about-company'
+            onClick={(e) => handleScrollToSection(e, 'about-company')}
+          >
+            О КОМПАНИИ
+          </a>
           <span className={`${styles.divider} ${styles.firstDivider}`} />
-          <a href='#'>КАК ЭТО РАБОТАЕТ</a>
+          <a
+            href='#how-it-works'
+            onClick={(e) => handleScrollToSection(e, 'how-it-works')}
+          >
+            КАК ЭТО РАБОТАЕТ
+          </a>
           <span className={`${styles.divider} ${styles.secondDivider}`} />
-          <a href='#'>ВОЗМОЖНОСТИ</a>
+          <a
+            href='#about-widget'
+            onClick={(e) => handleScrollToSection(e, 'about-widget')}
+          >
+            ВОЗМОЖНОСТИ
+          </a>
         </nav>
 
         <div className={styles.languageSwitcher}>
