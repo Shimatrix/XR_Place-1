@@ -24,7 +24,7 @@ const HowItWorks: React.FC = (): JSX.Element => {
   }, [step]);
 
   return (
-    <section className={styles.section}>
+    <section id='how-it-works' className={styles.section}>
       <EllipseGreen
         className={`
           ${styles['section__ellipse--green']} 
