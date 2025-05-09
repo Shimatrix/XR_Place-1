@@ -1,5 +1,7 @@
 import styles from './Footer.module.scss';
 import arrow from '../../../assets/images/arrow.svg';
+import { ModalWindow } from '../../ModalDemo/ModalDemo';
+import { useState } from 'react';
 
 export function Footer() {
   const handleScrollToTop = () => {
@@ -8,6 +10,8 @@ export function Footer() {
       behavior: 'smooth'
     });
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <footer className={styles.footer}>
@@ -40,7 +44,13 @@ export function Footer() {
               <a href='#'>Возможности</a>
             </li>
             <li>
-              <a href='#'>Назначить ДЕМО</a>
+              <a href='#' onClick={() => setIsModalOpen(true)}>
+                Назначить ДЕМО
+              </a>
+              <ModalWindow
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+              />
             </li>
           </ul>
         </div>
