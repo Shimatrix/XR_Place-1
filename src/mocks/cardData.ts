@@ -29,6 +29,7 @@ export const mockCards: CardData[] = [
     imageUrl: 'src/assets/images/project-card/project3.png',
     captionLine1: 'mira',
     captionLine2: 'real estate agency'
+
   }
   // {
   //   id: 5,
@@ -36,4 +37,5 @@ export const mockCards: CardData[] = [
   //   captionLine1: 'mira',
   //   captionLine2: 'real estate agency'
   // }
+
 ];
