@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
+import PhoneInput, { isValidPhoneNumber } from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 import style from './ModalDemo.module.css';
 import { UIButton } from '../ui/button/button';
 import done from '../../assets/images/done.svg';
@@ -22,13 +24,15 @@ export const ModalWindow: React.FC<{
     telegram: '',
     agree: false
   });
+
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [isValid, setIsValid] = useState(false);
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
+      if (e.key === 'Escape') onClose();
     },
     [onClose]
   );
@@ -51,38 +55,89 @@ export const ModalWindow: React.FC<{
         telegram: '',
         agree: false
       });
+      setErrors({});
+      setTouched({});
       setIsSubmitted(false);
     }
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
+    document.body.style.overflow = isOpen ? 'hidden' : '';
     return () => {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const validate = (data: FormData) => {
+    const newErrors: Record<string, string> = {};
+
+    if (!data.phone || !isValidPhoneNumber(data.phone)) {
+      newErrors.phone = 'Введите корректный номер телефона';
+    }
+
+    if (!/^https:\/\/t\.me\/[a-zA-Z0-9_]{5,}$/.test(data.telegram)) {
+      newErrors.telegram = 'Введите корректную ссылку на Telegram';
+    }
+
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      newErrors.email = 'Введите корректный email';
+    }
+
+    if (!data.name.trim()) {
+      newErrors.name = 'Введите имя';
+    }
+
+    if (!data.agree) {
+      newErrors.agree = 'Необходимо согласие';
+    }
+
+    return newErrors;
+  };
+
+  useEffect(() => {
+    const currentErrors = validate(formData);
+    setIsValid(Object.keys(currentErrors).length === 0);
+  }, [formData]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type } = e.target;
     const checked =
       type === 'checkbox' ? (e.target as HTMLInputElement).checked : undefined;
 
-    setFormData((prev) => ({
-      ...prev,
+    const updatedData = {
+      ...formData,
       [name]: type === 'checkbox' ? checked : value
-    }));
+    } as FormData;
+
+    setFormData(updatedData);
+    setTouched((prev) => ({ ...prev, [name]: true }));
+
+    const validationErrors = validate(updatedData);
+    setErrors(validationErrors);
+  };
+
+  const handlePhoneChange = (value?: string) => {
+    const updatedData = { ...formData, phone: value || '' };
+    setFormData(updatedData);
+    setTouched((prev) => ({ ...prev, phone: true }));
+    setErrors(validate(updatedData));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    const validationErrors = validate(formData);
+    setErrors(validationErrors);
+    setTouched({
+      name: true,
+      email: true,
+      phone: true,
+      telegram: true,
+      agree: true
+    });
+
+    if (Object.keys(validationErrors).length === 0) {
+      setIsSubmitted(true);
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent) => {
@@ -103,10 +158,7 @@ export const ModalWindow: React.FC<{
               <h3 className={style.title}>спасибо за ваше доверие</h3>
               <div className={style.thankYouText}>
                 <p>Контактные данные успешно отправлены.</p>
-                <p>
-                  Мы свяжемся с вами в ближайшее время, чтобы обсудить все
-                  детали и ответить на вопросы.
-                </p>
+                <p>Мы свяжемся с вами в ближайшее время.</p>
               </div>
             </div>
             <div className={style.thankYouButtons}>
@@ -124,76 +176,79 @@ export const ModalWindow: React.FC<{
                 Готовы поднять ваш бизнес на новый уровень?
               </h3>
               <p className={style.description}>
-                Используйте наш инновационный виджет для создания захватывающих
-                виртуальных туров и увеличьте интерес к вашим объектам.
+                Используйте наш инновационный виджет для создания виртуальных
+                туров.
               </p>
             </div>
             <form onSubmit={handleSubmit} className={style.form}>
               <div className={style.inputBlock}>
                 <div className={style.row}>
                   <div className={style.inputGroup}>
-                    <input
-                      type='tel'
-                      id='phone'
+                    <PhoneInput
                       name='phone'
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      className={style.input}
+                      defaultCountry='RU'
                       placeholder='+ _ ( __ ) ___  __  -  __'
-                      required
+                      value={formData.phone}
+                      onChange={handlePhoneChange}
+                      className={style.input}
                     />
+                    {touched.phone && errors.phone && (
+                      <span className={style.error}>{errors.phone}</span>
+                    )}
                   </div>
                   <div className={style.inputGroup}>
                     <input
                       type='text'
-                      id='telegram'
                       name='telegram'
                       value={formData.telegram}
                       onChange={handleInputChange}
                       className={style.input}
-                      placeholder='https://t.me/'
-                      required
+                      placeholder='https://t.me/username'
                     />
+                    {touched.telegram && errors.telegram && (
+                      <span className={style.error}>{errors.telegram}</span>
+                    )}
                   </div>
                 </div>
                 <div className={style.row}>
                   <div className={style.inputGroup}>
                     <input
                       type='email'
-                      id='email'
                       name='email'
                       value={formData.email}
                       onChange={handleInputChange}
                       className={style.input}
                       placeholder='email'
-                      required
                     />
+                    {touched.email && errors.email && (
+                      <span className={style.error}>{errors.email}</span>
+                    )}
                   </div>
                 </div>
                 <div className={style.row}>
                   <div className={style.inputGroup}>
                     <input
                       type='text'
-                      id='name'
                       name='name'
                       value={formData.name}
                       onChange={handleInputChange}
                       className={style.input}
                       placeholder='Как вас зовут'
-                      required
                     />
+                    {touched.name && errors.name && (
+                      <span className={style.error}>{errors.name}</span>
+                    )}
                   </div>
                 </div>
               </div>
+
               <div className={style.checkboxRow}>
                 <input
                   type='checkbox'
-                  id='agree'
                   name='agree'
                   checked={formData.agree}
                   onChange={handleInputChange}
                   className={style.checkbox}
-                  required
                 />
                 <label htmlFor='agree' className={style.checkboxLabel}>
                   Я принимаю условия{' '}
@@ -202,11 +257,15 @@ export const ModalWindow: React.FC<{
                   </a>
                 </label>
               </div>
+              {touched.agree && errors.agree && (
+                <span className={style.error}>{errors.agree}</span>
+              )}
+
               <UIButton
                 text='отправить данные'
                 type='submit'
-                className={`${style.button_demo}`}
-                disabled={!formData.agree}
+                className={style.button_demo}
+                disabled={!isValid}
               />
             </form>
             <button
