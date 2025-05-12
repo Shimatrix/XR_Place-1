@@ -5,13 +5,15 @@ interface CardProps {
   captionLine1: string;
   captionLine2: string;
   className?: string;
+  hideCaption?: boolean;
 }
 
 export const Card = ({
   imageUrl,
   captionLine1,
   captionLine2,
-  className = ''
+  className = '',
+  hideCaption = false
 }: CardProps) => (
   <div className={`${styles.card} ${className}`}>
     <img
@@ -19,9 +21,11 @@ export const Card = ({
       alt={`${captionLine1} ${captionLine2}`}
       className={styles.image}
     />
-    <div className={styles.caption}>
-      <p className={styles.captionLine1}>{captionLine1}</p>
-      <p className={styles.captionLine2}>{captionLine2}</p>
-    </div>
+    {!hideCaption && (
+      <div className={styles.caption}>
+        <p className={styles.captionLine1}>{captionLine1}</p>
+        <p className={styles.captionLine2}>{captionLine2}</p>
+      </div>
+    )}
   </div>
 );
