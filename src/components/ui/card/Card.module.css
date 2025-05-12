@@ -1,7 +1,5 @@
 .card {
-  width: 930px;
-  height: 560px;
-  flex-shrink: 0;
+  height: auto;
   overflow: hidden;
   position: relative;
   display: flex;
@@ -9,10 +7,9 @@
 }
 
 .image {
-  width: 100%;
-  height: calc(100% - 80px);
+  height: auto;
   object-fit: fill;
-  border-radius: 20px;
+  border-radius: 30px;
   border: 1px solid rgba(195, 195, 195, 0.8);
 }
 
@@ -24,13 +21,11 @@
 
 .captionLine1 {
   color: var(--TEXT-grey, #4d4d4d);
-
-  /* text_XL Regular */
   font-family: 'Inter', sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
-  line-height: 100%; /* 40px */
+  line-height: 100%;
   letter-spacing: -3.2px;
   text-transform: uppercase;
   margin: 0;
@@ -38,13 +33,11 @@
 
 .captionLine2 {
   color: var(--TEXT-black, #2d2d2d);
-
-  /* large */
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
-  line-height: 110%; /* 19.8px */
+  line-height: 110%;
   letter-spacing: -0.54px;
   margin-top: 4px;
 }

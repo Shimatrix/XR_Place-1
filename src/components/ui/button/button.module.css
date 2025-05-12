@@ -1,10 +1,10 @@
 .button_demo {
-  width: 348px;
+  width: clamp(320px, 18vw, 348px);
   height: 60.8px;
   background-color: #055042;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: clamp(10px, 1.5vw, 20px);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -20,4 +20,10 @@
   line-height: 100%;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
+}
+
+@media (width <= 375px) {
+  .button_demo {
+    height: 68px;
+  }
 }

@@ -6,7 +6,7 @@ import {
 import styles from './BusinessTeam.module.scss';
 
 export const BusinessTeam = () => (
-  <section className={styles.businessTeam}>
+  <section id='about-company' className={styles.businessTeam}>
     <BusinessTeamSectionTitle label='Кто мы'>
       БИЗНЕС <BusinessTeamTitleHighlight>КОМАНДА</BusinessTeamTitleHighlight>
     </BusinessTeamSectionTitle>
