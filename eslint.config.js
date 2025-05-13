@@ -29,7 +29,10 @@ export default [
         KeyboardEvent: 'readonly',
         SVGSVGElement: 'readonly',
         IntersectionObserver: 'readonly',
-        IntersectionObserverInit: 'readonly'
+        IntersectionObserverInit: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        HTMLDivElement: 'readonly'
       }
     },
     plugins: {

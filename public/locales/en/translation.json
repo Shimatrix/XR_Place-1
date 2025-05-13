@@ -1,0 +1,165 @@
+{
+  "header": {
+    "menu": {
+      "about": "About the platform",
+      "projects": "Projects",
+      "team": "Team",
+      "contacts": "Contacts",
+      "aboutCompany": "About Us",
+      "howItWorks": "How it works",
+      "features": "Features"
+    },
+    "language": "Language",
+    "demo": "Request DEMO"
+  },
+  "xr": {
+    "title": "XR PLACE",
+    "description": "Convenient tools for object presentations: create virtual tours taking into account time and resource costs",
+    "button": "Schedule a Demo"
+  },
+  "philosophy": {
+    "label": "Our Philosophy",
+    "title": {
+      "main": "A Reliable Partner",
+      "highlight": "for Business Success"
+    },
+    "text1": "We offer a unique widget for creating virtual tours that allow your clients to explore properties in an interactive format.",
+    "text2": {
+      "line1": "transform your",
+      "line2": "perception of real estate buying",
+      "line3": "with interactive virtual",
+      "line4": "3D tours"
+    }
+  },
+  "widget": {
+    "label": "Widget",
+    "title": {
+      "main": "What the Widget",
+      "highlight": "Can Do"
+    },
+    "description": "Our widget creates immersive and realistic representations of real estate objects. This helps clients make informed decisions. We offer easy-to-use solutions that integrate seamlessly into your business processes.",
+    "features": [
+      "Panoramic building view",
+      "Layout and interior",
+      "Freedom of movement",
+      "Layout accuracy",
+      "Interactivity",
+      "Cross-platform compatibility"
+    ]
+  },
+  "cooperation": {
+    "label": "Cooperation",
+    "title": {
+      "line1": "Clients",
+      "line2": {
+        "first": "trust",
+        "highlight": "us"
+      }
+    },
+    "description": "Our clients are part of our team. You can always count on our support and expertise — we strive to make our partnership meaningful.",
+    "cards": [
+      "Increased website conversion",
+      "Improved trust",
+      "Layout accuracy",
+      "Easy embedding",
+      "15% increase in real estate sales",
+      "Interactivity"
+    ]
+  },
+  "projects": {
+    "label": "Cooperation",
+    "title": {
+      "regular": "Completed",
+      "highlight": "Projects"
+    },
+    "card1": {
+      "title": "Northern Port",
+      "desc": "Real Estate Agency"
+    },
+    "card2": {
+      "title": "Samolet",
+      "desc": "Real Estate Company"
+    },
+    "card3": {
+      "title": "Mira",
+      "desc": "Real estate agency"
+    },
+    "viewAll": "View all projects",
+    "viewAllMobile": "All projects",
+    "common": {
+      "back": "Back",
+      "forward": "Next"
+    }
+  },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": "Learn how it works",
+    "desc1": "Our interactive solutions help your clients choose properties with confidence.",
+    "desc2": "Create unforgettable experiences with our virtual tours.",
+    "button": "Schedule a Demo"
+  },
+  "team": {
+    "sectionLabel": "Who are we",
+    "sectionTitle": {
+      "main": "Business",
+      "highlight": "Team"
+    },
+    "closingText": "With us you will receive not only a product, but also a partnership based on trust and mutual understanding.",
+    "member1": {
+      "name": "Artyom Tarkhanov",
+      "role": "Co-founder & CEO",
+      "about1": "We understand that every company is unique, so we work closely with our customers to create customized solutions that meet their needs.",
+      "about2": "Our team not only develops technologies, but also provides support at every stage of cooperation."
+    },
+    "member2": {
+      "name": "Victor Karneev",
+      "role": "Co-founder & Production Director"
+    }
+  },
+  "faq": {
+    "label": "FAQ",
+    "title": "Questions for Our Team",
+    "items": [
+      "How can I install the widget on my site?",
+      "Can I customize the widget for my brand?",
+      "How can I create content for a virtual tour?",
+      "Is there a free trial available?",
+      "How do I find out the cost of the widget?"
+    ],
+    "answer": "Installing the widget is simple and only takes a few steps. Once you follow the necessary instructions, you will also have access to our technical support, which will help you at any stage of the installation."
+  },
+  "footer": {
+    "contacts": "Contacts",
+    "menuTitle": "Menu",
+    "menu": {
+      "about": "About",
+      "features": "Features",
+      "demo": "Request DEMO"
+    },
+    "social": "Social Media",
+    "toTop": "Back to Top",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "copyright": "© 2025 XRPlace. All rights reserved"
+  },
+  "modal1": {
+    "title": "Ready to elevate your business?",
+    "description": "Use our innovative widget to create captivating virtual tours and increase engagement with your properties.",
+    "namePlaceholder": "Your Name",
+    "checkboxText": "I accept the",
+    "checkboxLink": "Privacy Policy terms",
+    "button": "Submit Data"
+  },
+  "modal2": {
+    "title": "Thank You for Your Trust",
+    "text": "Your contact information has been successfully submitted. We’ll get in touch soon to discuss the details.",
+    "button": "Home Page"
+  },
+  "errors": {
+    "phone": "Please enter a valid phone number",
+    "telegram": "Please enter a valid Telegram link",
+    "email": "Please enter a valid email address",
+    "name": "Please enter your name",
+    "agree": "Agreement is required"
+  }
+}
