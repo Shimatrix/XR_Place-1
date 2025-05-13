@@ -1,0 +1,19 @@
+.block {
+  width: 1442px;
+  height: 852px;
+  flex-shrink: 0;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  margin-top: 150px;
+}
+
+.accordionContainer {
+  margin-top: 40px;
+}
+
+.titleContainer {
+  gap: 188px;
+  max-width: 924px;
+}

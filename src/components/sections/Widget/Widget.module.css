@@ -1,0 +1,56 @@
+.heroSection {
+  width: 100vw;
+  max-width: 1440px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100vh;
+  background: lightgray 50% / cover no-repeat;
+}
+
+.centeredSvg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    max-width: 360px;
+  }
+}
+
+.heroSection {
+  width: 100%;
+  height: 827px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.heroImage {
+  position: absolute;
+  width: 1583px;
+  height: 890px;
+  flex-shrink: 0;
+  background: lightgray 50% / cover no-repeat;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centeredSvg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+}
