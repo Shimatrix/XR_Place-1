@@ -35,6 +35,8 @@ const cards = [
   }
 ];
 
+const ANIMATION_DELAY = 200;
+
 export function ClientsTrust() {
   return (
     <section className={styles.section}>
@@ -57,6 +59,7 @@ export function ClientsTrust() {
               title={card.title}
               url={card.url}
               className={styles[gridClass]}
+              delay={index * ANIMATION_DELAY}
             />
           );
         })}

@@ -190,29 +190,112 @@
   }
 
   .data_cooki_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #171717;
-    z-index: 2;
-    position: relative;
-    margin-top: -20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #171717;
+      z-index: 2;
+      position: relative;
+      margin-top: -20px;
 
-    p {
-      color: var(--grey-opacity);
+      p {
+        color: var(--grey-opacity);
+      }
+    }
+
+    .links {
+      display: flex;
+      gap: 15px;
+
+      a {
+        color: var(--grey-opacity);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+  @media (max-width: 1140px) {
+    .footer_content {
+      display: flex;
+      flex-direction: column;
     }
   }
 
-  .links {
-    display: flex;
-    gap: 15px;
+  &_mobile {
+    display: none;
+    @media (max-width: 768px) {
+      display: block;
+      margin-top: 60px;
+      margin-left: 40px;
+    }
 
-    a {
-      color: var(--grey-opacity);
-      text-decoration: none;
+    .mobile_label {
+      display: flex;
+      gap: 90px;
+      margin-bottom: 20px;
+    }
 
-      &:hover {
-        text-decoration: underline;
+    .logo {
+      font-size: 36px;
+      text-transform: uppercase;
+
+      img {
+        padding-right: 9px;
+      }
+    }
+
+    .start_button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .footer_section:first-child {
+      margin-bottom: 52px;
+    }
+
+    .menu_list {
+      text-transform: uppercase;
+      font-size: var(--text-m);
+      margin-bottom: 10px;
+
+      li {
+        padding-bottom: 20px;
+      }
+    }
+    .social_list {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      gap: 40px;
+      margin-bottom: 40px;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .data_cooki_container {
+      display: flex;
+      p {
+        font-size: 12px;
+      }
+    }
+
+    .links {
+      gap: 5px;
+
+      a {
+        font-size: 12px;
       }
     }
   }
