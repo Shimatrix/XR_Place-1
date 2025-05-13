@@ -74,6 +74,7 @@ p {
 
     &__mobile-group {
       display: flex;
+      align-items: center;
     }
 
     &__svg-text {
@@ -108,6 +109,42 @@ p {
     }
     &__work {
       width: 1300px;
+
+      @media (max-width: 767px) {
+        margin-inline-start: 25px;
+        height: 95px;
+        width: 284px;
+      }
+    }
+
+    &__how-en {
+      height: 188px;
+      width: 558px;
+      margin-inline-end: 44px;
+
+      @media (max-width: 767px) {
+        height: 76px;
+        width: 193px;
+        margin-inline-end: 7px;
+        margin-inline-start: 10px;
+      }
+    }
+
+    &__it-en {
+      height: 188px;
+      width: 188px;
+      margin-inline-start: 97px;
+
+      @media (max-width: 767px) {
+        height: 76px;
+        width: 76px;
+        margin-inline-start: 140px;
+      }
+    }
+
+    &__works-en {
+      width: 812px;
+      height: 186px;
 
       @media (max-width: 767px) {
         margin-inline-start: 25px;
