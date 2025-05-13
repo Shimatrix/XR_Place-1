@@ -94,6 +94,7 @@
         &:nth-child(3) {
           animation-delay: 0.6s;
         }
+
       }
 
       li:first-child {
@@ -149,7 +150,6 @@
       transform: scaleX(1.2);
       transform-origin: left center;
       z-index: 1;
-
       opacity: 0;
       animation: dissolution ease forwards;
       animation-delay: 0.5s;
@@ -176,7 +176,6 @@
   .menu_list {
     list-style-type: none;
   }
-
   .social_list {
     list-style-type: none;
   }
@@ -186,33 +185,42 @@
       border: none;
       background-color: transparent;
       cursor: pointer;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
-
-  .data_cooki_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #171717;
-    z-index: 2;
-    position: relative;
-    margin-top: -20px;
-
-    p {
-      color: var(--grey-opacity);
+      li {
+        padding-bottom: 20px;
+      }
     }
-  }
+    .social_list {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      gap: 40px;
+      margin-bottom: 40px;
 
-  .links {
-    display: flex;
-    gap: 15px;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
 
-    a {
-      color: var(--grey-opacity);
-      text-decoration: none;
+    .data_cooki_container {
+      display: flex;
+      p {
+        font-size: 12px;
+      }
+    }
 
-      &:hover {
-        text-decoration: underline;
+    .links {
+      gap: 5px;
+
+      a {
+        font-size: 12px;
       }
     }
   }

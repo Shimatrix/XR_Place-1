@@ -27,7 +27,10 @@ export default [
         HTMLInputElement: 'readonly',
         HTMLTextAreaElement: 'readonly',
         KeyboardEvent: 'readonly',
-        SVGSVGElement: 'readonly'
+        SVGSVGElement: 'readonly',
+        HTMLDivElement: 'readonly',
+        IntersectionObserver: 'readonly',
+        setTimeout: 'readonly'
       }
     },
     plugins: {
