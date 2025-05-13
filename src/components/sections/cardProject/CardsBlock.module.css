@@ -25,7 +25,6 @@
   overflow: hidden;
   max-width: 1440px;
   margin-left: -7%;
-
 }
 
 .carouselTrack {
@@ -128,7 +127,6 @@
     position: relative;
     top: -2px;
   }
-
 
   .cardGrid.gridLayout {
     grid-template-columns: 1fr;
