@@ -22,7 +22,11 @@ export default [
         document: 'readonly',
         window: 'readonly',
         React: 'readonly',
-        JSX: 'readonly'
+        JSX: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLInputElement: 'readonly',
+        HTMLTextAreaElement: 'readonly',
+        KeyboardEvent: 'readonly'
       }
     },
     plugins: {
