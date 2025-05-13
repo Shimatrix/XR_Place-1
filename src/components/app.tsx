@@ -18,12 +18,12 @@ export function App() {
       <XRPlace />
       <PartnersBlock />
       <AboutWidget />
+      <WidgetSection />
       <ClientsTrust />
       <CardsBlock />
       <HowItWorks />
       <BusinessTeam />
       <FAQBlock />
-      <WidgetSection />
     </Layout>
   );
 }

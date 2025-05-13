@@ -5,6 +5,9 @@
   color: var(--ui-white);
   font-family: var(--font-inter);
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 7% 0px;
   position: relative;
   overflow: hidden;
 
@@ -190,32 +193,32 @@
   }
 
   .data_cooki_container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #171717;
-      z-index: 2;
-      position: relative;
-      margin-top: -20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #171717;
+    z-index: 2;
+    position: relative;
+    margin-top: -20px;
 
-      p {
-        color: var(--grey-opacity);
+    p {
+      color: var(--grey-opacity);
+    }
+  }
+
+  .links {
+    display: flex;
+    gap: 15px;
+
+    a {
+      color: var(--grey-opacity);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
-
-    .links {
-      display: flex;
-      gap: 15px;
-
-      a {
-        color: var(--grey-opacity);
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
+  }
 
   @media (max-width: 1140px) {
     .footer_content {

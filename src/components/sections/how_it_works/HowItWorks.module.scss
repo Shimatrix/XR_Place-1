@@ -43,9 +43,10 @@ p {
   max-height: 973px;
   background: #191919;
   max-width: 1440px;
+  width: 100%;
   position: relative;
   margin: 0 auto;
-  padding: 100px 40px 80px 100px;
+  padding: 100px 7%;
   overflow: hidden;
 
   @media (max-width: 767px) {
