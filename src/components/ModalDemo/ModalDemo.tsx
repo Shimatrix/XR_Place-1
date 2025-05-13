@@ -179,6 +179,13 @@ export const ModalWindow: React.FC<{
                 Используйте наш инновационный виджет для создания виртуальных
                 туров.
               </p>
+              <button
+                onClick={onClose}
+                className={style.closeButton}
+                aria-label='Закрыть модальное окно'
+              >
+                ×
+              </button>
             </div>
             <form onSubmit={handleSubmit} className={style.form}>
               <div className={style.inputBlock}>
@@ -268,13 +275,6 @@ export const ModalWindow: React.FC<{
                 disabled={!isValid}
               />
             </form>
-            <button
-              onClick={onClose}
-              className={style.closeButton}
-              aria-label='Закрыть модальное окно'
-            >
-              ×
-            </button>
           </div>
         )}
       </div>
