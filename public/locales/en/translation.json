@@ -12,74 +12,9 @@
     "language": "Language",
     "demo": "Request DEMO"
   },
-  "footer": {
-    "contacts": "Contacts",
-    "menuTitle": "Menu",
-    "menu": {
-      "about": "About",
-      "features": "Features",
-      "demo": "Request DEMO"
-    },
-    "social": "Social Media",
-    "toTop": "Back to Top",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Use",
-    "copyright": "© 2025 XRPlace. All rights reserved"
-  },
-  "team": {
-    "sectionLabel": "Who are we",
-    "sectionTitle": {
-      "main": "Business",
-      "highlight": "Team"
-    },
-    "closingText": "With us you will receive not only a product, but also a partnership based on trust and mutual understanding.",
-    "member1": {
-      "name": "Artyom Tarkhanov",
-      "role": "Co-founder & CEO",
-      "about1": "We understand that every company is unique, so we work closely with our customers to create customized solutions that meet their needs.",
-      "about2": "Our team not only develops technologies, but also provides support at every stage of cooperation."
-    },
-    "member2": {
-      "name": "Victor Karneev",
-      "role": "Co-founder & Production Director"
-    }
-  },
-  "projects": {
-    "label": "Cooperation",
-    "title": {
-      "regular": "Completed",
-      "highlight": "Projects"
-    },
-    "card1": {
-      "title": "Northern Port",
-      "desc": "Real Estate Agency"
-    },
-    "card2": {
-      "title": "Samolet",
-      "desc": "Real Estate Company"
-    },
-    "card3": {
-      "title": "Mira",
-      "desc": "Real estate agency"
-    },
-    "viewAll": "View all projects",
-    "viewAllMobile": "All projects",
-    "common": {
-      "back": "Back",
-      "forward": "Next"
-    }
-  },
   "xr": {
     "title": "XR PLACE",
-    "desc": "An innovative platform for 3D tours of future real estate"
-  },
-  "hero": {
-    "navbar": {
-      "about": "About Us",
-      "how": "How it works",
-      "features": "Features"
-    },
-    "description": "Convenient tools for presenting real estate objects: create virtual tours with minimal time and resources.",
+    "description": "Convenient tools for object presentations: create virtual tours taking into account time and resource costs",
     "button": "Schedule a Demo"
   },
   "philosophy": {
@@ -131,12 +66,55 @@
       "Interactivity"
     ]
   },
+  "projects": {
+    "label": "Cooperation",
+    "title": {
+      "regular": "Completed",
+      "highlight": "Projects"
+    },
+    "card1": {
+      "title": "Northern Port",
+      "desc": "Real Estate Agency"
+    },
+    "card2": {
+      "title": "Samolet",
+      "desc": "Real Estate Company"
+    },
+    "card3": {
+      "title": "Mira",
+      "desc": "Real estate agency"
+    },
+    "viewAll": "View all projects",
+    "viewAllMobile": "All projects",
+    "common": {
+      "back": "Back",
+      "forward": "Next"
+    }
+  },
   "howItWorks": {
     "title": "How It Works",
     "subtitle": "Learn how it works",
     "desc1": "Our interactive solutions help your clients choose properties with confidence.",
     "desc2": "Create unforgettable experiences with our virtual tours.",
     "button": "Schedule a Demo"
+  },
+  "team": {
+    "sectionLabel": "Who are we",
+    "sectionTitle": {
+      "main": "Business",
+      "highlight": "Team"
+    },
+    "closingText": "With us you will receive not only a product, but also a partnership based on trust and mutual understanding.",
+    "member1": {
+      "name": "Artyom Tarkhanov",
+      "role": "Co-founder & CEO",
+      "about1": "We understand that every company is unique, so we work closely with our customers to create customized solutions that meet their needs.",
+      "about2": "Our team not only develops technologies, but also provides support at every stage of cooperation."
+    },
+    "member2": {
+      "name": "Victor Karneev",
+      "role": "Co-founder & Production Director"
+    }
   },
   "faq": {
     "label": "FAQ",
@@ -150,12 +128,32 @@
     ],
     "answer": "Installing the widget is simple and only takes a few steps. Once you follow the necessary instructions, you will also have access to our technical support, which will help you at any stage of the installation."
   },
+  "footer": {
+    "contacts": "Contacts",
+    "menuTitle": "Menu",
+    "menu": {
+      "about": "About",
+      "features": "Features",
+      "demo": "Request DEMO"
+    },
+    "social": "Social Media",
+    "toTop": "Back to Top",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "copyright": "© 2025 XRPlace. All rights reserved"
+  },
   "modal1": {
     "title": "Ready to elevate your business?",
     "description": "Use our innovative widget to create captivating virtual tours and increase engagement with your properties.",
     "namePlaceholder": "Your Name",
-    "checkbox": "I accept the Privacy Policy terms",
+    "checkboxText": "I accept the",
+    "checkboxLink": "Privacy Policy terms",
     "button": "Submit Data"
+  },
+  "modal2": {
+    "title": "Thank You for Your Trust",
+    "text": "Your contact information has been successfully submitted. We’ll get in touch soon to discuss the details.",
+    "button": "Home Page"
   },
   "errors": {
     "phone": "Please enter a valid phone number",
@@ -163,10 +161,5 @@
     "email": "Please enter a valid email address",
     "name": "Please enter your name",
     "agree": "Agreement is required"
-  },
-  "modal2": {
-    "title": "Thank You for Your Trust",
-    "text": "Your contact information has been successfully submitted. We’ll get in touch soon to discuss the details.",
-    "button": "Home Page"
   }
 }

@@ -19,6 +19,7 @@ export const ModalWindow: React.FC<{
   onClose: () => void;
 }> = ({ isOpen, onClose }) => {
   const { t } = useTranslation();
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -175,6 +176,13 @@ export const ModalWindow: React.FC<{
             <div className={style.blockTitle}>
               <h3 className={style.title}>{t('modal1.title')}</h3>
               <p className={style.description}>{t('modal1.description')}</p>
+              <button
+                onClick={onClose}
+                className={style.closeButton}
+                aria-label='Закрыть модальное окно'
+              >
+                ×
+              </button>
             </div>
             <form onSubmit={handleSubmit} className={style.form}>
               <div className={style.inputBlock}>
@@ -242,14 +250,15 @@ export const ModalWindow: React.FC<{
                 <input
                   type='checkbox'
                   name='agree'
+                  id='agree'
                   checked={formData.agree}
                   onChange={handleInputChange}
                   className={style.checkbox}
                 />
                 <label htmlFor='agree' className={style.checkboxLabel}>
-                  {t('modal1.checkbox').split('Политики')[0]}
+                  {t('modal1.checkboxText')}
                   <a href='#' className={style.link}>
-                    Политики обработки персональных данных
+                    {t('modal1.checkboxLink')}
                   </a>
                 </label>
               </div>
@@ -264,13 +273,6 @@ export const ModalWindow: React.FC<{
                 disabled={!isValid}
               />
             </form>
-            <button
-              onClick={onClose}
-              className={style.closeButton}
-              aria-label='Закрыть модальное окно'
-            >
-              ×
-            </button>
           </div>
         )}
       </div>

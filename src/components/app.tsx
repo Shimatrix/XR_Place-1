@@ -11,6 +11,7 @@ import { FAQBlock } from './sections/faq/FAQBlock';
 import HowItWorks from './sections/how_it_works/HowItWorks';
 import { PartnersBlock } from './sections//PartnersBlock/PartnerBlock';
 import AboutWidget from './sections/AboutWidget/AboutWidget';
+
 export function App() {
   return (
     <Layout>

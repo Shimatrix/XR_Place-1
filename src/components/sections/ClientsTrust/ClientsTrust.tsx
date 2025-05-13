@@ -10,6 +10,8 @@ import interactiveIcon from '../../../assets/icons/interactive-icon.png';
 import integrationIcon from '../../../assets/icons/integration-icon.png';
 import salesIcon from '../../../assets/icons/sales-icon.png';
 
+const ANIMATION_DELAY = 200;
+
 export function ClientsTrust() {
   const { t } = useTranslation();
 
@@ -46,6 +48,7 @@ export function ClientsTrust() {
               title={t(`cooperation.cards.${index}`)}
               url={icon}
               className={styles[gridClass]}
+              delay={index * ANIMATION_DELAY}
             />
           );
         })}

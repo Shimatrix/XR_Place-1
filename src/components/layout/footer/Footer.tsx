@@ -1,12 +1,19 @@
 import { useTranslation } from 'react-i18next';
 import styles from './Footer.module.scss';
 import arrow from '../../../assets/images/arrow.svg';
+import arrowMobile from '../../../assets/images/Arrowmobile.svg';
+import mail from '../../../assets/images/mail.svg';
+import linkedin from '../../../assets/images/inkedin.svg';
+import instagram from '../../../assets/images/instagram.svg';
+import logoImageWhite from '../../../assets/images/logoImageWhite.svg';
 import { useState } from 'react';
 import { ModalWindow } from '../../ModalDemo/ModalDemo';
+import { useMediaQuery } from 'react-responsive';
 
 export function Footer() {
   const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -22,12 +29,14 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.start_button}>
-        <button onClick={handleScrollToTop}>
-          {t('footer.toTop')}
-          <img src={arrow} alt='Arrow icon' />
-        </button>
-      </div>
+      {!isMobile && (
+        <div className={styles.start_button}>
+          <button onClick={handleScrollToTop}>
+            {t('footer.toTop')}
+            <img src={arrow} alt='Arrow icon' />
+          </button>
+        </div>
+      )}
 
       <div className={styles.footer_content}>
         <div className={`${styles.footer_section} ${styles.contacts_section}`}>
@@ -35,12 +44,12 @@ export function Footer() {
           <p>
             Melikishvili str. 92/16
             <br /> 6004 Batumi, Georgia
-            <br /> Copyright ©2024 XR Place
+            <br /> {t('footer.copyright')}
           </p>
         </div>
 
         <div className={`${styles.footer_section} ${styles.menu_section}`}>
-          <h3>{t('footer.menuTitle')}</h3>
+          <h3>{t('footer.menuTitle') || 'Menu'}</h3>
           <ul className={styles.menu_list}>
             <li>
               <a
@@ -84,7 +93,9 @@ export function Footer() {
           <h3>{t('footer.social')}</h3>
           <ul className={styles.social_list}>
             <li>
-              <a href='mailto:hello@xrlace.io'>hello@xrlace.io</a>
+              <a href='mailto:hello@xrlace.io'>
+                <img src={mail} alt='email' />
+              </a>
             </li>
             <li>
               <a
@@ -92,7 +103,7 @@ export function Footer() {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                Instagram
+                <img src={instagram} alt='Instagram' />
               </a>
             </li>
             <li>
@@ -101,16 +112,24 @@ export function Footer() {
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                LinkedIn
+                <img src={linkedin} alt='LinkedIn' />
               </a>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className={styles.lable}>XR Place</div>
-
-      <ModalWindow isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      {isMobile && (
+        <div className={styles.mobile_label}>
+          <div className={styles.logo}>
+            <img src={logoImageWhite} alt='Logo' />
+            XR Place
+          </div>
+          <button onClick={handleScrollToTop} aria-label='Back to top'>
+            <img src={arrowMobile} alt='Arrow' />
+          </button>
+        </div>
+      )}
 
       <div className={styles.data_cooki_container}>
         <p>{t('footer.copyright')}</p>
@@ -119,6 +138,8 @@ export function Footer() {
           <a href='#'>{t('footer.terms')}</a>
         </div>
       </div>
+
+      <ModalWindow isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );
 }

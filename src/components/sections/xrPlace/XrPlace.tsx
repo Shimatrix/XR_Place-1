@@ -20,12 +20,14 @@ export function XRPlace() {
       </div>
       <div className={style.dot_figure} />
       <div className={style.diagonal_figure} />
+
       <h1 className={style.main_title}>{t('xr.title')}</h1>
+
       <div className={style.content}>
         <div className={style.left_block}>
-          <p className={style.text}>{t('hero.description')}</p>
+          <p className={style.text}>{t('xr.description')}</p>
           <UIButton
-            text={t('hero.button')}
+            text={t('xr.button')}
             onClick={() => setIsModalOpen(true)}
           />
           <ModalWindow
@@ -33,6 +35,7 @@ export function XRPlace() {
             onClose={() => setIsModalOpen(false)}
           />
         </div>
+
         <div className={style.right_block}>
           <span className={style.text_label}>place for business</span>
           <img className={style.img_label} src={heroImg} alt='3D картинка' />

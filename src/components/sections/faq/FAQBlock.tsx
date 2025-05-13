@@ -9,11 +9,14 @@ export const FAQBlock = () => {
   const items = t('faq.items', { returnObjects: true }) as string[];
   const answer = t('faq.answer');
 
+  const title = t('faq.title');
+  const [highlight, ...rest] = title.split(' ');
+
   return (
     <div className={styles.block}>
-      <Title label={t('faq.label')}>
-        <TitleHighlight>{t('faq.title').split(' ')[0]} </TitleHighlight>
-        {t('faq.title').split(' ').slice(1).join(' ')}
+      <Title label={t('faq.label')} className={styles.titleContainer}>
+        <TitleHighlight>{highlight} </TitleHighlight>
+        {rest.join(' ')}
       </Title>
       <div className={styles.accordionContainer}>
         {items.map((item, index) => (
