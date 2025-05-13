@@ -9,6 +9,7 @@ i18n
     supportedLngs: ['ru', 'en'],
     fallbackLng: 'ru',
     lng: 'ru',
+    initImmediate: false,
     backend: {
       loadPath: '/locales/{{lng}}/translation.json'
     },

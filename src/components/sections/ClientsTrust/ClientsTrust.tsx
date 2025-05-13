@@ -26,10 +26,14 @@ export function ClientsTrust() {
     <section className={styles.section}>
       <div className={styles.header}>
         <Title label={t('cooperation.label')}>
-          {t('cooperation.title').split(' ')[0]}{' '}
-          <TitleHighlight>
-            {t('cooperation.title').split(' ')[1]}
-          </TitleHighlight>
+          <>
+            {t('cooperation.title.line1')}
+            <br />
+            {t('cooperation.title.line2.first')}{' '}
+            <TitleHighlight>
+              {t('cooperation.title.line2.highlight')}
+            </TitleHighlight>
+          </>
         </Title>
         <p className={styles.description}>{t('cooperation.description')}</p>
       </div>

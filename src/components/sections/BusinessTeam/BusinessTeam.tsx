@@ -3,18 +3,17 @@ import {
   BusinessTeamSectionTitle,
   BusinessTeamTitleHighlight
 } from '../../ui/h2/BusinessTeamSectionTitle';
-
 import styles from './BusinessTeam.module.scss';
 
 export const BusinessTeam = () => {
   const { t } = useTranslation();
 
   return (
-    <section className={styles.businessTeam}>
+    <section id='about-company' className={styles.businessTeam}>
       <BusinessTeamSectionTitle label={t('team.sectionLabel')}>
-        {t('team.sectionTitle').split(' ')[0]}{' '}
+        {t('team.sectionTitle.main')}{' '}
         <BusinessTeamTitleHighlight>
-          {t('team.sectionTitle').split(' ')[1]}
+          {t('team.sectionTitle.highlight')}
         </BusinessTeamTitleHighlight>
       </BusinessTeamSectionTitle>
 
@@ -34,12 +33,12 @@ export const BusinessTeam = () => {
               </div>
               <img
                 src='../src/assets/images/Group.svg'
-                alt='декоративный элемент векторной графики в виде абстрактных линий'
+                alt='декор'
                 className={`${styles.decor} ${styles.decorLeftCard}`}
               />
               <img
                 src='../src/assets/images/square.svg'
-                alt='декоративный элемент векторной графики в виде точек, составляющих фигуру квадрат'
+                alt='декор квадрат'
                 className={`${styles.decor} ${styles.decorSquare}`}
               />
             </div>
@@ -75,12 +74,12 @@ export const BusinessTeam = () => {
               </div>
               <img
                 src='../src/assets/images/GroupTwo.svg'
-                alt='декоративный элемент векторной графики в виде абстрактных линий'
+                alt='декор'
                 className={`${styles.decor} ${styles.decorRightCard}`}
               />
               <img
                 src='../src/assets/images/circle.svg'
-                alt='декоративный элемент векторной графики в виде точек, составляющих фигуру круг'
+                alt='декор круг'
                 className={`${styles.decor} ${styles.decorCircle}`}
               />
             </div>
@@ -106,12 +105,12 @@ export const BusinessTeam = () => {
           </div>
           <img
             src='../src/assets/images/GroupOneMobile.svg'
-            alt='декоративный элемент векторной графики в виде в виде абстрактных линий'
+            alt='декор'
             className={`${styles.decor} ${styles.decorLeftCard}`}
           />
           <img
             src='../src/assets/images/rectangle.svg'
-            alt='декоративный элемент векторной графики в виде в виде точек, составляющих фигуру прямоугольник'
+            alt='декор прямоугольник'
             className={`${styles.decor} ${styles.decorRectangle}`}
           />
         </div>
@@ -132,12 +131,12 @@ export const BusinessTeam = () => {
           </div>
           <img
             src='../src/assets/images/GroupTwoMobile.svg'
-            alt='декоративный элемент векторной графики в виде в виде абстрактных линий'
+            alt='декор'
             className={`${styles.decor} ${styles.decorRightCard}`}
           />
           <img
             src='../src/assets/images/circle.svg'
-            alt='декоративный элемент векторной графики в виде в виде точек, составляющих фигуру круг'
+            alt='декор круг'
             className={`${styles.decor} ${styles.decorCircle}`}
           />
         </div>

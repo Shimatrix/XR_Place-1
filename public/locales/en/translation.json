@@ -4,13 +4,17 @@
       "about": "About the platform",
       "projects": "Projects",
       "team": "Team",
-      "contacts": "Contacts"
+      "contacts": "Contacts",
+      "aboutCompany": "About Us",
+      "howItWorks": "How it works",
+      "features": "Features"
     },
     "language": "Language",
     "demo": "Request DEMO"
   },
   "footer": {
     "contacts": "Contacts",
+    "menuTitle": "Menu",
     "menu": {
       "about": "About",
       "features": "Features",
@@ -24,7 +28,10 @@
   },
   "team": {
     "sectionLabel": "Who are we",
-    "sectionTitle": "Business Team",
+    "sectionTitle": {
+      "main": "Business",
+      "highlight": "Team"
+    },
     "closingText": "With us you will receive not only a product, but also a partnership based on trust and mutual understanding.",
     "member1": {
       "name": "Artyom Tarkhanov",
@@ -54,6 +61,12 @@
     "card3": {
       "title": "Mira",
       "desc": "Real estate agency"
+    },
+    "viewAll": "View all projects",
+    "viewAllMobile": "All projects",
+    "common": {
+      "back": "Back",
+      "forward": "Next"
     }
   },
   "xr": {
@@ -71,13 +84,24 @@
   },
   "philosophy": {
     "label": "Our Philosophy",
-    "title": "A Reliable Partner for Business Success",
+    "title": {
+      "main": "A Reliable Partner",
+      "highlight": "for Business Success"
+    },
     "text1": "We offer a unique widget for creating virtual tours that allow your clients to explore properties in an interactive format.",
-    "text2": "Transform your view of real estate purchases with interactive 3D virtual tours"
+    "text2": {
+      "line1": "transform your",
+      "line2": "perception of real estate buying",
+      "line3": "with interactive virtual",
+      "line4": "3D tours"
+    }
   },
   "widget": {
     "label": "Widget",
-    "title": "What the Widget Can Do",
+    "title": {
+      "main": "What the Widget",
+      "highlight": "Can Do"
+    },
     "description": "Our widget creates immersive and realistic representations of real estate objects. This helps clients make informed decisions. We offer easy-to-use solutions that integrate seamlessly into your business processes.",
     "features": [
       "Panoramic building view",
@@ -90,7 +114,13 @@
   },
   "cooperation": {
     "label": "Cooperation",
-    "title": "Clients Trust Us",
+    "title": {
+      "line1": "Clients",
+      "line2": {
+        "first": "trust",
+        "highlight": "us"
+      }
+    },
     "description": "Our clients are part of our team. You can always count on our support and expertise — we strive to make our partnership meaningful.",
     "cards": [
       "Increased website conversion",

@@ -1,15 +1,23 @@
 import { useTranslation } from 'react-i18next';
 import styles from './Footer.module.scss';
 import arrow from '../../../assets/images/arrow.svg';
+import { useState } from 'react';
+import { ModalWindow } from '../../ModalDemo/ModalDemo';
 
 export function Footer() {
   const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleScrollToSection = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   return (
@@ -17,7 +25,7 @@ export function Footer() {
       <div className={styles.start_button}>
         <button onClick={handleScrollToTop}>
           {t('footer.toTop')}
-          <img src={arrow} alt='Стрелка' />
+          <img src={arrow} alt='Arrow icon' />
         </button>
       </div>
 
@@ -32,19 +40,42 @@ export function Footer() {
         </div>
 
         <div className={`${styles.footer_section} ${styles.menu_section}`}>
-          <h3>{t('footer.menu.about')}</h3>
+          <h3>{t('footer.menuTitle')}</h3>
           <ul className={styles.menu_list}>
             <li>
-              <a href='#'>{t('footer.menu.about')}</a>
+              <a
+                href='#about-company'
+                onClick={(e) => handleScrollToSection(e, 'about-company')}
+              >
+                {t('header.menu.aboutCompany')}
+              </a>
             </li>
             <li>
-              <a href='#'>{t('hero.navbar.how')}</a>
+              <a
+                href='#how-it-works'
+                onClick={(e) => handleScrollToSection(e, 'how-it-works')}
+              >
+                {t('header.menu.howItWorks')}
+              </a>
             </li>
             <li>
-              <a href='#'>{t('footer.menu.features')}</a>
+              <a
+                href='#about-widget'
+                onClick={(e) => handleScrollToSection(e, 'about-widget')}
+              >
+                {t('header.menu.features')}
+              </a>
             </li>
             <li>
-              <a href='#'>{t('footer.menu.demo')}</a>
+              <a
+                href='#'
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalOpen(true);
+                }}
+              >
+                {t('header.demo')}
+              </a>
             </li>
           </ul>
         </div>
@@ -56,16 +87,30 @@ export function Footer() {
               <a href='mailto:hello@xrlace.io'>hello@xrlace.io</a>
             </li>
             <li>
-              <a href='#'>Instagram</a>
+              <a
+                href='https://www.instagram.com/'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                Instagram
+              </a>
             </li>
             <li>
-              <a href='#'>LinkedIn</a>
+              <a
+                href='https://www.linkedin.com/'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                LinkedIn
+              </a>
             </li>
           </ul>
         </div>
       </div>
 
       <div className={styles.lable}>XR Place</div>
+
+      <ModalWindow isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
       <div className={styles.data_cooki_container}>
         <p>{t('footer.copyright')}</p>

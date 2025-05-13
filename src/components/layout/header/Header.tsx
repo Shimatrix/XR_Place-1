@@ -10,6 +10,17 @@ export function Header() {
     if (lng !== currentLang) i18n.changeLanguage(lng);
   };
 
+  const handleScrollToSection = (e: React.MouseEvent, sectionId: string) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -20,9 +31,35 @@ export function Header() {
         <nav className={styles.nav}>
           <a href='#'>{t('header.menu.about')}</a>
           <span className={`${styles.divider} ${styles.firstDivider}`} />
+
           <a href='#'>{t('header.menu.projects')}</a>
           <span className={`${styles.divider} ${styles.secondDivider}`} />
+
           <a href='#'>{t('header.menu.team')}</a>
+          <span className={`${styles.divider} ${styles.firstDivider}`} />
+
+          <a
+            href='#about-company'
+            onClick={(e) => handleScrollToSection(e, 'about-company')}
+          >
+            {t('header.menu.aboutCompany')}
+          </a>
+          <span className={`${styles.divider} ${styles.firstDivider}`} />
+
+          <a
+            href='#how-it-works'
+            onClick={(e) => handleScrollToSection(e, 'how-it-works')}
+          >
+            {t('header.menu.howItWorks')}
+          </a>
+          <span className={`${styles.divider} ${styles.secondDivider}`} />
+
+          <a
+            href='#about-widget'
+            onClick={(e) => handleScrollToSection(e, 'about-widget')}
+          >
+            {t('header.menu.features')}
+          </a>
         </nav>
 
         <div className={styles.languageSwitcher}>
