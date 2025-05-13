@@ -16,26 +16,29 @@ import Arrow from '/src/assets/icons/Arrow.svg?react';
 import { UIButton } from '../../ui/button/button';
 import { ModalWindow } from '../../ModalDemo/ModalDemo';
 import { useMediaQuery } from 'react-responsive';
+import { useInView } from '../../../hooks/useInView/useInView';
 
 const HowItWorks: React.FC = (): JSX.Element => {
-  let pageLanguage = 2; //Переменная для смены языка
+  let pageLanguage = 1; //Переменная для смены языка
+  const { ref, isInView } = useInView({ threshold: 0.3 });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [step, setStep] = useState(0);
 
   const maxStep = isMobile ? 9 : 12;
+
   useEffect(() => {
-    if (step < maxStep) {
+    if (isInView && step < maxStep) {
       // eslint-disable-next-line no-undef
       const timer = setTimeout(() => setStep((prev) => prev + 1), 500);
       // eslint-disable-next-line no-undef
       return () => clearTimeout(timer);
     }
-  }, [step, maxStep]);
+  }, [step, maxStep, isInView]);
 
   return (
-    <section id='how-it-works' className={styles.section}>
+    <section id='how-it-works' className={styles.section} ref={ref}>
       <EllipseGreen
         className={`
           ${styles['section__ellipse--green']} 

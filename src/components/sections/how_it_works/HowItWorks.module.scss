@@ -185,7 +185,14 @@ p {
     left: -245px;
     top: 133px;
     z-index: 2;
-    @include fade-slide-animation(-50px, 0);
+    transition: scale 0.5s ease-out;
+
+    &--hidden {
+      scale: 0;
+    }
+    &--visible {
+      scale: 1;
+    }
 
     @media (max-width: 767px) {
       left: -323px;
