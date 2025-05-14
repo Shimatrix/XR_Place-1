@@ -1,205 +1,144 @@
+import { useTranslation } from 'react-i18next';
 import styles from './Footer.module.scss';
 import arrow from '../../../assets/images/arrow.svg';
-import arrowmobile from '../../../assets/images/Arrowmobile.svg';
+import arrowMobile from '../../../assets/images/Arrowmobile.svg';
 import mail from '../../../assets/images/mail.svg';
-import inkedin from '../../../assets/images/inkedin.svg';
+import linkedin from '../../../assets/images/inkedin.svg';
 import instagram from '../../../assets/images/instagram.svg';
 import logoImageWhite from '../../../assets/images/logoImageWhite.svg';
 import { useState } from 'react';
 import { ModalWindow } from '../../ModalDemo/ModalDemo';
+import { useMediaQuery } from 'react-responsive';
 
 export function Footer() {
+  const { t } = useTranslation();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const handleScrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   const handleScrollToSection = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <footer className={styles.footer}>
-      {/* ДЕСКТОП */}
-
-      <div className={styles.footer_desktop}>
+      {!isMobile && (
         <div className={styles.start_button}>
-          <button onClick={handleScrollToTop} aria-label='Наверх'>
-            В начало
-            <img src={arrow} alt='Стрелка' />
+          <button onClick={handleScrollToTop}>
+            {t('footer.toTop')}
+            <img src={arrow} alt='Arrow icon' />
           </button>
         </div>
-        <div className={styles.footer_content}>
-          <div
-            className={`${styles.footer_section} ${styles.contacts_section}`}
-          >
-            <h3>Контакты</h3>
-            <p>
-              Melikishvili str. 92/16
-              <br /> 6004 Batumi, Georgia
-              <br /> Copyright ©2024 XR Place
-            </p>
-          </div>
+      )}
 
-          <div className={`${styles.footer_section} ${styles.menu_section}`}>
-            <h3>Меню</h3>
-            <ul className={styles.menu_list}>
-              <li>
-                <a
-                  href='#about-company'
-                  onClick={(e) => handleScrollToSection(e, 'about-company')}
-                >
-                  О компании
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#how-it-works'
-                  onClick={(e) => handleScrollToSection(e, 'how-it-works')}
-                >
-                  Как это работает
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#about-widget'
-                  onClick={(e) => handleScrollToSection(e, 'about-widget')}
-                >
-                  Возможности
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsModalOpen(true);
-                  }}
-                >
-                  Назначить ДЕМО
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div className={`${styles.footer_section} ${styles.social_section}`}>
-            <h3>Соцсети</h3>
-            <ul className={styles.social_list}>
-              <li>
-                <a href='#'>hello@xrlace.io</a>
-              </li>
-              <li>
-                <a href='#'>Instagram</a>
-              </li>
-              <li>
-                <a href='#'>LinkedIn</a>
-              </li>
-            </ul>
-          </div>
+      <div className={styles.footer_content}>
+        <div className={`${styles.footer_section} ${styles.contacts_section}`}>
+          <h3>{t('footer.contacts')}</h3>
+          <p>
+            Melikishvili str. 92/16
+            <br /> 6004 Batumi, Georgia
+            <br /> {t('footer.copyright')}
+          </p>
         </div>
-        <div className={styles.lable}>XR Place</div>
-        <div className={styles.data_cooki_container}>
-          <p>© 2025 XRPlace. Все права защищены</p>
-          <div className={styles.links}>
-            <a href='#'>Политика конфиденциальности</a>
-            <a href='#'>Условия использования</a>
-          </div>
+
+        <div className={`${styles.footer_section} ${styles.menu_section}`}>
+          <h3>{t('footer.menuTitle') || 'Menu'}</h3>
+          <ul className={styles.menu_list}>
+            <li>
+              <a
+                href='#about-company'
+                onClick={(e) => handleScrollToSection(e, 'about-company')}
+              >
+                {t('header.menu.aboutCompany')}
+              </a>
+            </li>
+            <li>
+              <a
+                href='#how-it-works'
+                onClick={(e) => handleScrollToSection(e, 'how-it-works')}
+              >
+                {t('header.menu.howItWorks')}
+              </a>
+            </li>
+            <li>
+              <a
+                href='#about-widget'
+                onClick={(e) => handleScrollToSection(e, 'about-widget')}
+              >
+                {t('header.menu.features')}
+              </a>
+            </li>
+            <li>
+              <a
+                href='#'
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsModalOpen(true);
+                }}
+              >
+                {t('header.demo')}
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div className={`${styles.footer_section} ${styles.social_section}`}>
+          <h3>{t('footer.social')}</h3>
+          <ul className={styles.social_list}>
+            <li>
+              <a href='mailto:hello@xrlace.io'>
+                <img src={mail} alt='email' />
+              </a>
+            </li>
+            <li>
+              <a
+                href='https://www.instagram.com/'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img src={instagram} alt='Instagram' />
+              </a>
+            </li>
+            <li>
+              <a
+                href='https://www.linkedin.com/'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <img src={linkedin} alt='LinkedIn' />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      {/* МОБИЛКА */}
-
-      <div className={styles.footer_mobile}>
+      {isMobile && (
         <div className={styles.mobile_label}>
           <div className={styles.logo}>
-            <img src={logoImageWhite} alt='Логотип' />
+            <img src={logoImageWhite} alt='Logo' />
             XR Place
           </div>
-          <button
-            className={styles.start_button}
-            onClick={handleScrollToTop}
-            aria-label='Наверх'
-          >
-            <img src={arrowmobile} alt='Стрелка' />
+          <button onClick={handleScrollToTop} aria-label='Back to top'>
+            <img src={arrowMobile} alt='Arrow' />
           </button>
         </div>
-        <div className={styles.footer_content}>
-          <div className={styles.footer_section}>
-            <p>
-              Melikishvili str. 92/16
-              <br /> 6004 Batumi, Georgia
-              <br /> Copyright ©2024 XR Place
-            </p>
-          </div>
-          <div className={styles.footer_section}>
-            <ul className={styles.menu_list}>
-              <li>
-                <a
-                  href='#about-company'
-                  onClick={(e) => handleScrollToSection(e, 'about-company')}
-                >
-                  О компании
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#how-it-works'
-                  onClick={(e) => handleScrollToSection(e, 'how-it-works')}
-                >
-                  Как это работает
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#about-widget'
-                  onClick={(e) => handleScrollToSection(e, 'about-widget')}
-                >
-                  Возможности
-                </a>
-              </li>
-              <li>
-                <a
-                  href='#'
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsModalOpen(true);
-                  }}
-                >
-                  Назначить ДЕМО
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <ul className={styles.social_list}>
-              <li>
-                <img src={mail} alt='hello@xrlace.io' />
-              </li>
-              <li>
-                <img src={instagram} alt='Instagram' />
-              </li>
-              <li>
-                <img src={inkedin} alt='LinkedIn' />
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className={styles.data_cooki_container}>
-          <p>© 2025 XRPlace. Все права защищены</p>
-          <div className={styles.links}>
-            <a href='#'>Политика конфиденциальности</a>
-            <a href='#'>Условия использования</a>
-          </div>
+      )}
+
+      <div className={styles.data_cooki_container}>
+        <p>{t('footer.copyright')}</p>
+        <div className={styles.links}>
+          <a href='#'>{t('footer.privacy')}</a>
+          <a href='#'>{t('footer.terms')}</a>
         </div>
       </div>
+
       <ModalWindow isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
   );

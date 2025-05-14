@@ -25,10 +25,12 @@ export function XRPlace() {
             Удобные инструменты для презентации объектов: создавайте виртуальные
             туры с минимальными затратами времени и ресурсов
           </p>
-          <UIButton
-            text='Назначить демо'
-            onClick={() => setIsModalOpen(true)}
-          />
+          <div className={style.button_demo_animation}>
+            <UIButton
+              text='Назначить демо'
+              onClick={() => setIsModalOpen(true)}
+            />
+          </div>
           <ModalWindow
             isOpen={isModalOpen}
             onClose={() => setIsModalOpen(false)}

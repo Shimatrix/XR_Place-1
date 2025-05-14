@@ -4,11 +4,18 @@ import { useState } from 'react';
 import { BurgerButton } from '../../ui/burgerButton/BurgerButton';
 import { ModalWindow } from '../../ModalDemo/ModalDemo';
 import { XRLogo } from '../../ui/logo/logo';
+import { useTranslation } from 'react-i18next';
 
 export function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language;
+
+  const changeLanguage = (lng: 'ru' | 'en') => {
+    if (lng !== currentLang) i18n.changeLanguage(lng);
+  };
 
   const handleScrollToSection = (e: React.MouseEvent, sectionId: string) => {
     e.preventDefault();
@@ -56,41 +63,54 @@ export function Header() {
 
       <div className={styles.menu}>
         <nav className={styles.nav}>
+          <a href='#'>{t('header.menu.about')}</a>
+          <span className={`${styles.divider} ${styles.firstDivider}`} />
+
+          <a href='#'>{t('header.menu.projects')}</a>
+          <span className={`${styles.divider} ${styles.secondDivider}`} />
+
+          <a href='#'>{t('header.menu.team')}</a>
+          <span className={`${styles.divider} ${styles.firstDivider}`} />
+
           <a
             href='#about-company'
             onClick={(e) => handleScrollToSection(e, 'about-company')}
           >
-            О КОМПАНИИ
+            {t('header.menu.aboutCompany')}
           </a>
           <span className={`${styles.divider} ${styles.firstDivider}`} />
+
           <a
             href='#how-it-works'
             onClick={(e) => handleScrollToSection(e, 'how-it-works')}
           >
-            КАК ЭТО РАБОТАЕТ
+            {t('header.menu.howItWorks')}
           </a>
           <span className={`${styles.divider} ${styles.secondDivider}`} />
+
           <a
             href='#about-widget'
             onClick={(e) => handleScrollToSection(e, 'about-widget')}
           >
-            ВОЗМОЖНОСТИ
+            {t('header.menu.features')}
           </a>
         </nav>
 
         <div className={styles.languageSwitcher}>
           <div className={styles.activeDot} />
           <button
-            className={styles.inactive}
+            className={currentLang === 'en' ? styles.active : styles.inactive}
             type='button'
+            onClick={() => changeLanguage('en')}
             aria-label='Switch to English'
           >
             EN
           </button>
           <span className={styles.divider} />
           <button
-            className={styles.active}
+            className={currentLang === 'ru' ? styles.active : styles.inactive}
             type='button'
+            onClick={() => changeLanguage('ru')}
             aria-label='Переключить на русский'
           >
             RU

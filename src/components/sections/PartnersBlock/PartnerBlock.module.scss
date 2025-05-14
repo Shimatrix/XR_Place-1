@@ -5,8 +5,9 @@ p {
 }
 
 .partnerBlock {
-  padding: 148px 0 0 0;
+  padding: 100px 7%;
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   font-family: var(--font-inter);
 }
@@ -55,10 +56,10 @@ p {
   color: var(--text-black);
   font-weight: 300;
   font-size: var(--text-xl);
-  letter-spacing: -8%;
+  letter-spacing: -2.5px;
   text-transform: uppercase;
   display: block;
-  margin-right: 25px;
+  margin-left: 90px;
 }
 
 .textAlignOne {
