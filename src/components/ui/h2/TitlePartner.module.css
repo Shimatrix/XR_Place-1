@@ -4,6 +4,7 @@
   flex-wrap: nowrap;
   width: 100%;
   align-items: flex-start;
+  padding-top: 5px;
 }
 
 .label {
@@ -25,7 +26,7 @@
   font-size: 64px;
   font-weight: 300;
   line-height: 100%;
-  letter-spacing: -3.84px;
+  letter-spacing: -1.92px;
   text-transform: uppercase;
   margin-left: 0;
   text-align: left;
@@ -41,18 +42,18 @@
   .container {
     flex-direction: column;
     align-items: flex-start;
-    gap: 30px;
-    margin-bottom: 30px;
-    padding-left: 25px;
+    gap: 16px;
+    margin-bottom: 20px;
+    width: 100%;
   }
 
   .label {
     font-family: 'Manrope', sans-serif;
-    font-size: var(--text-xs);
+    font-size: 12px;
     font-weight: 400;
     line-height: 100%;
     letter-spacing: 0;
-    color: var(--primary);
+    color: var(--background-dark);
     text-transform: uppercase;
     align-self: flex-start;
     margin: 0;
@@ -62,9 +63,9 @@
     font-family: var(--font-inter);
     font-size: 24px;
     font-weight: 300;
-    line-height: 100%;
+    line-height: 120%;
     letter-spacing: -1.92px;
-    color: var(--primary);
+    color: var(--text-black);
     margin: 0;
     text-align: left;
   }

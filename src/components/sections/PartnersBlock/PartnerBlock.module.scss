@@ -13,8 +13,12 @@ p {
 }
 
 .desktopLayoutWrapper {
-  animation: fadeIn 0.5s ease-in-out 0.4s forwards;
+  animation: fadeIn 0.5s ease-in-out forwards;
   opacity: 0;
+}
+
+.animationTitle {
+  animation: slideUpMask 0.5s ease-in-out 0.3s forwards;
 }
 
 .desktopGrid {
@@ -26,7 +30,7 @@ p {
 .blockImg {
   margin-top: 16px;
   grid-column: 1 / 2;
-  animation: slideDownMask 0.5s ease-in-out 0.3s forwards;
+  animation: slideDownMask 0.5s ease-in-out 0.5s forwards;
 }
 
 .description {
@@ -51,7 +55,7 @@ p {
   justify-content: center;
   margin-top: -72px;
   margin-left: 315px;
-  animation: slideUpMask 0.5s ease-in-out 0.5s forwards;
+  animation: slideUpMask 0.5s ease-in-out 0.6s forwards;
 }
 
 .subTitle {
@@ -59,7 +63,7 @@ p {
   color: var(--text-black);
   font-weight: 300;
   font-size: var(--text-xl);
-  letter-spacing: -8%;
+  letter-spacing: -3.24px;
   text-transform: uppercase;
   display: block;
   margin-right: 25px;
@@ -89,10 +93,6 @@ p {
   display: none;
 }
 
-.animationTitle {
-  animation: slideUpMask 0.5s ease-in-out forwards;
-}
-
 .scrollLine {
   position: absolute;
   top: 565px;
@@ -102,6 +102,68 @@ p {
   background-image: url('../src/assets/images/greenLine.svg');
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.mobileLayoutWrapper {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktopLayoutWrapper {
+    display: none;
+  }
+
+  .partnerBlock {
+    padding: 60px 20px 0 20px;
+  }
+
+  .mobileLayoutWrapper {
+    display: block;
+  }
+
+  .mobileGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobileDescription {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 32px;
+    line-height: 100%;
+    color: var(--text-primary-grey);
+  }
+
+  .mobileImg {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .mobileSubTitleWrapper {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .roomImg {
+    width: 100%;
+    height: 208px;
+  }
+
+  .subTitle {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 100%;
+    color: var(--text-primary-grey);
+    letter-spacing: -1.2px;
+  }
+
+  .mobileTitle {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 @keyframes fadeIn {
@@ -136,22 +198,5 @@ p {
     transform: translateY(0);
     opacity: 1;
     clip-path: inset(0 0 0 0);
-  }
-}
-
-@media (max-width: 360px) {
-  .partnerBlock {
-    padding: 70px 0 32px 0px;
-  }
-
-  // .desktopLayoutWrapper {
-  //   display: none;
-  // }
-
-  .desktopGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-left: 25px;
   }
 }
