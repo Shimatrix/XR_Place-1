@@ -8,6 +8,7 @@
   box-sizing: border-box;
   font-family: 'Inter', 'Helvetica', sans-serif;
   font-size: 16px;
+  height: 48px;
 }
 .menu {
   display: flex;
@@ -96,4 +97,96 @@
   letter-spacing: -0.64px;
   vertical-align: middle;
   text-transform: uppercase;
+}
+
+.mobileControls {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    overflow: hidden;
+    position: fixed;
+    z-index: 998;
+    max-width: 360px;
+    width: 100%;
+    padding: 20px 20px 24px 20px;
+    height: 28px;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .activeDot {
+    display: none;
+  }
+
+  .mobileMenu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    z-index: 999;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease-out;
+    max-width: 360px;
+    height: 100vh;
+    transition:
+      transform 0.3s ease,
+      opacity 0.1s ease;
+    text-decoration: none;
+    a {
+      text-decoration: none;
+      color: var(--text-black-opacity);
+      font-weight: 300;
+      font-family: 'Inter';
+      font-size: 20px;
+      line-height: 100%;
+      letter-spacing: -8%;
+      text-transform: uppercase;
+      display: block;
+    }
+    &.closing {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+  }
+
+  .mobileControls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .mobileControls {
+    display: flex;
+  }
+
+  .mobileNav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 77px;
+  }
+
+  .social_list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin-bottom: 105px;
+  }
+
+  .menuLogo {
+    font-size: 36px;
+    color: var(--primary-opacity);
+    margin-bottom: 16px;
+  }
+
+  .adress {
+    text-transform: none;
+  }
 }

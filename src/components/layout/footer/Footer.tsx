@@ -29,7 +29,6 @@ export function Footer() {
 
   return (
     <footer className={styles.footer}>
-
       {/* ДЕСКТОП */}
 
       <div className={styles.footer_desktop}>
@@ -194,12 +193,12 @@ export function Footer() {
           </div>
         </div>
         <div className={styles.data_cooki_container}>
-        <p>© 2025 XRPlace. Все права защищены</p>
-        <div className={styles.links}>
-          <a href='#'>Политика конфиденциальности</a>
-          <a href='#'>Условия использования</a>
+          <p>© 2025 XRPlace. Все права защищены</p>
+          <div className={styles.links}>
+            <a href='#'>Политика конфиденциальности</a>
+            <a href='#'>Условия использования</a>
+          </div>
         </div>
-      </div>
       </div>
       <ModalWindow isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </footer>
