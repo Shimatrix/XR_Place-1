@@ -11,9 +11,7 @@ export const ExpandIcon: FC<ExpandIconProps> = ({
   className = ''
 }) => (
   <svg
-    className={`${styles.icon} ${isExpanded ? styles.expanded : ''} ${className}`}
-    width='50'
-    height='50'
+    className={`transition-transform duration-200 ${isExpanded ? styles.expanded : ''} ${className}`}
     viewBox='0 0 50 50'
     fill='none'
     xmlns='http://www.w3.org/2000/svg'

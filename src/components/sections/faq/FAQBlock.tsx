@@ -1,5 +1,5 @@
 import { Title, TitleHighlight } from '../../ui/h2/Title';
-import { Accordion } from '../../ui/accordion/accordion';
+import { AccordionItem } from '../../ui/accordion/accordionItem';
 import styles from './FAQBlock.module.css';
 
 export const FAQBlock = () => (
@@ -7,28 +7,28 @@ export const FAQBlock = () => (
     <Title label='Вопросы' className={styles.titleContainer}>
       <TitleHighlight>вопросы </TitleHighlight>нашей команде
     </Title>
-    <div className={styles.accordionContainer}>
-      <Accordion title='КАК УСТАНОВИТЬ ВИДЖЕТ НА МОЙ САЙТ?'>
+    <div className={styles.FAQContainer}>
+      <AccordionItem title='КАК УСТАНОВИТЬ ВИДЖЕТ НА МОЙ САЙТ?'>
         Установка виджета проста и требует всего несколько шагов. После вы
         получите инструкцию по интеграции, а также доступ к нашей технической
         поддержке, которая поможет вам на любом этапе установки.
-      </Accordion>
-      <Accordion title='Могу ли я кастомизировать виджет под свой бренд?'>
+      </AccordionItem>
+      <AccordionItem title='Могу ли я кастомизировать виджет под свой бренд?'>
         Да! Виджет полностью настраиваем: вы можете менять цвета, шрифты,
         логотипы, чтобы он гармонировал с визуальным стилем вашего бренда.
-      </Accordion>
-      <Accordion title='Как я могу создать контент для виртуального тура?'>
+      </AccordionItem>
+      <AccordionItem title='Как я могу создать контент для виртуального тура?'>
         Мы предоставляем инструменты и рекомендации для создания 3D-туров.
         можете воспользоваться услугами наших партнёров по съёмке.
-      </Accordion>
-      <Accordion title='Есть ли возможность пробного периода?'>
+      </AccordionItem>
+      <AccordionItem title='Есть ли возможность пробного периода?'>
         Да, вы можете активировать бесплатный пробный период на 14 дней без
         указания банковской карты.
-      </Accordion>
-      <Accordion title='Как мне узнать стоимость виджета?'>
+      </AccordionItem>
+      <AccordionItem title='Как мне узнать стоимость виджета?'>
         Стоимость рассчитывается индивидуально — в зависимости от вашего
         выбранного функционала. Свяжитесь с нами для консультации.
-      </Accordion>
+      </AccordionItem>
     </div>
   </div>
 );
