@@ -2,9 +2,11 @@ import { useState } from 'react';
 import style from './XrPlace.module.css';
 import heroImg from '../../../assets/images/Frame.png';
 import { UIButton } from '../../ui/button/button';
+import { useTranslation } from 'react-i18next';
 import { ModalWindow } from '../../ModalDemo/ModalDemo';
 
 export function XRPlace() {
+  const { t } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -18,15 +20,14 @@ export function XRPlace() {
       </div>
       <div className={style.dot_figure} />
       <div className={style.diagonal_figure} />
-      <h1 className={style.main_title}>xr place</h1>
+
+      <h1 className={style.main_title}>{t('xr.title')}</h1>
+
       <div className={style.content}>
         <div className={style.left_block}>
-          <p className={style.text}>
-            Удобные инструменты для презентации объектов: создавайте виртуальные
-            туры с минимальными затратами времени и ресурсов
-          </p>
+          <p className={style.text}>{t('xr.description')}</p>
           <UIButton
-            text='Назначить демо'
+            text={t('xr.button')}
             onClick={() => setIsModalOpen(true)}
           />
           <ModalWindow
@@ -34,6 +35,7 @@ export function XRPlace() {
             onClose={() => setIsModalOpen(false)}
           />
         </div>
+
         <div className={style.right_block}>
           <span className={style.text_label}>place for business</span>
           <img className={style.img_label} src={heroImg} alt='3D картинка' />
