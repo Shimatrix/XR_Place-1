@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Title, TitleHighlight } from '../../ui/h2/Title';
-import { Accordion } from '../../ui/accordion/accordion';
+import { AccordionItem } from '../../ui/accordion/accordionItem';
 import styles from './FAQBlock.module.css';
 
 export const FAQBlock = () => {
@@ -20,9 +20,9 @@ export const FAQBlock = () => {
       </Title>
       <div className={styles.accordionContainer}>
         {items.map((item, index) => (
-          <Accordion key={index} title={item}>
+          <AccordionItem key={index} title={item}>
             {answer}
-          </Accordion>
+          </AccordionItem>
         ))}
       </div>
     </div>

@@ -1,6 +1,6 @@
 .block {
   max-width: 1440px;
-  padding: 0 7%;
+  padding: 0 7% 100px 7%;
   margin: 0 auto;
   overflow: visible;
   box-sizing: border-box;
@@ -87,6 +87,7 @@
     margin: 0 auto;
     padding: 0 25px;
     gap: 30px;
+    padding-bottom: 50px;
   }
 
   .cardGrid {

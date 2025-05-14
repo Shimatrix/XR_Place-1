@@ -10,7 +10,7 @@
   border-bottom: none;
 }
 
-.accordionButton {
+.accordionItemButton {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,8 +23,12 @@
   border: none;
   width: 100%;
   padding: 20px 0;
-  cursor: pointer;
   background-color: #ffffff;
+}
+
+.accordionItemButton {
+  flex: 1;
+  text-align: left;
 }
 
 .accordionItemContent {
@@ -33,7 +37,7 @@
 }
 
 .accordionItemText {
-  max-width: 859px;
+  width: 859px;
   color: var(--text-grey);
   font-family: var(--font-helvetica);
   font-size: var(--text-xs);
@@ -41,7 +45,7 @@
   line-height: 120%;
 }
 
-.accordionItemOpen .accordionButton {
+.accordionItemOpen .accordionItemButton {
   padding-bottom: 5px;
 }
 
@@ -53,4 +57,35 @@
 .accordionItemText p {
   margin-top: 0;
   margin-bottom: 25px;
+}
+
+.highlight {
+  color: (--primary, #055042);
+}
+
+/*Значения взяты не из макета. В промежуточном разрешении старница так выглядит дружелюбнее.*/
+@media (max-width: 1024px) {
+  .accordionItemText {
+    width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .accordionItemButton {
+    font-size: var(--text-s);
+    padding: 16px 0;
+  }
+
+  .accordionItemTitle {
+    width: 276px;
+  }
+
+  .accordionItemIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .accordionItemText {
+    width: 310px;
+  }
 }
