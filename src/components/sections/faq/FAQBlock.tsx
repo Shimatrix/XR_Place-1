@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Title, TitleHighlight } from '../../ui/h2/Title';
-import { Accordion } from '../../ui/accordion/accordion';
+import { AccordionItem } from '../../ui/accordion/accordionItem';
 import styles from './FAQBlock.module.css';
 
 export const FAQBlock = () => {
