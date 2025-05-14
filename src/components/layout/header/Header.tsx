@@ -130,14 +130,12 @@ export function Header() {
             >
               {t('header.menu.aboutCompany')}
             </a>
-
             <a
               href='#how-it-works'
               onClick={(e) => handleScrollToSection(e, 'how-it-works')}
             >
               {t('header.menu.howItWorks')}
             </a>
-
             <a
               href='#about-widget'
               onClick={(e) => handleScrollToSection(e, 'about-widget')}
