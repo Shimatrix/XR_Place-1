@@ -12,3 +12,8 @@
 .accordionContainer {
   margin-top: 40px;
 }
+
+.titleContainer {
+  gap: 188px;
+  max-width: 924px;
+}

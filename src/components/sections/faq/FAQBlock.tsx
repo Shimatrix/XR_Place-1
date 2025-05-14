@@ -1,38 +1,30 @@
+import { useTranslation } from 'react-i18next';
 import { Title, TitleHighlight } from '../../ui/h2/Title';
 import { Accordion } from '../../ui/accordion/accordion';
 import styles from './FAQBlock.module.css';
 
-export const FAQBlock = () => (
-  <div className={styles.block}>
-    <Title label='Вопросы'>
-      <TitleHighlight>вопросы </TitleHighlight>нашей команде
-    </Title>
-    <div className={styles.accordionContainer}>
-      <Accordion title='КАК УСТАНОВИТЬ ВИДЖЕТ НА МОЙ САЙТ?'>
-        Установка виджета проста и требует всего несколько шагов. После вы
-        получите инструкцию по интеграции, а также доступ к нашей технической
-        поддержке, которая поможет вам на любом этапе установки.
-      </Accordion>
-      <Accordion title='Могу ли я кастомизировать виджет под свой бренд?'>
-        Установка виджета проста и требует всего несколько шагов. После вы
-        получите инструкцию по интеграции, а также доступ к нашей технической
-        поддержке, которая поможет вам на любом этапе установки.
-      </Accordion>
-      <Accordion title='Как я могу создать контент для виртуального тура?'>
-        Установка виджета проста и требует всего несколько шагов. После вы
-        получите инструкцию по интеграции, а также доступ к нашей технической
-        поддержке, которая поможет вам на любом этапе установки.
-      </Accordion>
-      <Accordion title='Есть ли возможность пробного периода?'>
-        Установка виджета проста и требует всего несколько шагов. После вы
-        получите инструкцию по интеграции, а также доступ к нашей технической
-        поддержке, которая поможет вам на любом этапе установки.
-      </Accordion>
-      <Accordion title='как мне узнать стоимость виджета?'>
-        Установка виджета проста и требует всего несколько шагов. После вы
-        получите инструкцию по интеграции, а также доступ к нашей технической
-        поддержке, которая поможет вам на любом этапе установки.
-      </Accordion>
+export const FAQBlock = () => {
+  const { t } = useTranslation();
+
+  const items = t('faq.items', { returnObjects: true }) as string[];
+  const answer = t('faq.answer');
+
+  const title = t('faq.title');
+  const [highlight, ...rest] = title.split(' ');
+
+  return (
+    <div className={styles.block}>
+      <Title label={t('faq.label')} className={styles.titleContainer}>
+        <TitleHighlight>{highlight} </TitleHighlight>
+        {rest.join(' ')}
+      </Title>
+      <div className={styles.accordionContainer}>
+        {items.map((item, index) => (
+          <Accordion key={index} title={item}>
+            {answer}
+          </Accordion>
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};

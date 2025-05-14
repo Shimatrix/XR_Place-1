@@ -4,6 +4,7 @@ import 'react-phone-number-input/style.css';
 import style from './ModalDemo.module.css';
 import { UIButton } from '../ui/button/button';
 import done from '../../assets/images/done.svg';
+import { useTranslation } from 'react-i18next';
 
 interface FormData {
   name: string;
@@ -17,6 +18,8 @@ export const ModalWindow: React.FC<{
   isOpen: boolean;
   onClose: () => void;
 }> = ({ isOpen, onClose }) => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -72,23 +75,23 @@ export const ModalWindow: React.FC<{
     const newErrors: Record<string, string> = {};
 
     if (!data.phone || !isValidPhoneNumber(data.phone)) {
-      newErrors.phone = 'Введите корректный номер телефона';
+      newErrors.phone = t('errors.phone');
     }
 
     if (!/^https:\/\/t\.me\/[a-zA-Z0-9_]{5,}$/.test(data.telegram)) {
-      newErrors.telegram = 'Введите корректную ссылку на Telegram';
+      newErrors.telegram = t('errors.telegram');
     }
 
     if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      newErrors.email = 'Введите корректный email';
+      newErrors.email = t('errors.email');
     }
 
     if (!data.name.trim()) {
-      newErrors.name = 'Введите имя';
+      newErrors.name = t('errors.name');
     }
 
     if (!data.agree) {
-      newErrors.agree = 'Необходимо согласие';
+      newErrors.agree = t('errors.agree');
     }
 
     return newErrors;
@@ -155,15 +158,14 @@ export const ModalWindow: React.FC<{
           <div className={style.thankYou}>
             <img className={style.done} src={done} alt='done' />
             <div className={style.thankYouTextBlock}>
-              <h3 className={style.title}>спасибо за ваше доверие</h3>
+              <h3 className={style.title}>{t('modal2.title')}</h3>
               <div className={style.thankYouText}>
-                <p>Контактные данные успешно отправлены.</p>
-                <p>Мы свяжемся с вами в ближайшее время.</p>
+                <p>{t('modal2.text')}</p>
               </div>
             </div>
             <div className={style.thankYouButtons}>
               <UIButton
-                text='На главную'
+                text={t('modal2.button')}
                 onClick={() => (window.location.href = '/')}
                 className={style.homeButton}
               />
@@ -172,13 +174,15 @@ export const ModalWindow: React.FC<{
         ) : (
           <div className={style.mainBlock}>
             <div className={style.blockTitle}>
-              <h3 className={style.title}>
-                Готовы поднять ваш бизнес на новый уровень?
-              </h3>
-              <p className={style.description}>
-                Используйте наш инновационный виджет для создания виртуальных
-                туров.
-              </p>
+              <h3 className={style.title}>{t('modal1.title')}</h3>
+              <p className={style.description}>{t('modal1.description')}</p>
+              <button
+                onClick={onClose}
+                className={style.closeButton}
+                aria-label='Закрыть модальное окно'
+              >
+                ×
+              </button>
             </div>
             <form onSubmit={handleSubmit} className={style.form}>
               <div className={style.inputBlock}>
@@ -218,7 +222,7 @@ export const ModalWindow: React.FC<{
                       value={formData.email}
                       onChange={handleInputChange}
                       className={style.input}
-                      placeholder='email'
+                      placeholder='Email'
                     />
                     {touched.email && errors.email && (
                       <span className={style.error}>{errors.email}</span>
@@ -233,7 +237,7 @@ export const ModalWindow: React.FC<{
                       value={formData.name}
                       onChange={handleInputChange}
                       className={style.input}
-                      placeholder='Как вас зовут'
+                      placeholder={t('modal1.namePlaceholder')}
                     />
                     {touched.name && errors.name && (
                       <span className={style.error}>{errors.name}</span>
@@ -246,14 +250,15 @@ export const ModalWindow: React.FC<{
                 <input
                   type='checkbox'
                   name='agree'
+                  id='agree'
                   checked={formData.agree}
                   onChange={handleInputChange}
                   className={style.checkbox}
                 />
                 <label htmlFor='agree' className={style.checkboxLabel}>
-                  Я принимаю условия{' '}
+                  {t('modal1.checkboxText')}
                   <a href='#' className={style.link}>
-                    Политики обработки персональных данных
+                    {t('modal1.checkboxLink')}
                   </a>
                 </label>
               </div>
@@ -262,19 +267,12 @@ export const ModalWindow: React.FC<{
               )}
 
               <UIButton
-                text='отправить данные'
+                text={t('modal1.button')}
                 type='submit'
                 className={style.button_demo}
                 disabled={!isValid}
               />
             </form>
-            <button
-              onClick={onClose}
-              className={style.closeButton}
-              aria-label='Закрыть модальное окно'
-            >
-              ×
-            </button>
           </div>
         )}
       </div>

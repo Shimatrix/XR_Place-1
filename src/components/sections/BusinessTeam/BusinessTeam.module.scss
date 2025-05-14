@@ -49,11 +49,11 @@ p {
 .teamTextBlock {
   margin: 0;
   width: 400px;
+  min-height: 314px;
   padding-top: 7px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: 140px;
   font: 300 var(--text-s) / var(--leading-normal) var(--font-inter);
   letter-spacing: -0.54px;
   color: var(--text-black-opacity);
@@ -61,14 +61,23 @@ p {
   opacity: 0;
 }
 
+.topParagraph {
+  padding-top: 7px;
+}
+
+.bottomParagraph {
+  margin-top: auto;
+  padding-top: 140px;
+}
+
 .closingStatementWrapper {
   width: 400px;
-  height: 325px;
   display: flex;
   align-items: flex-end;
   animation: fadeIn 0.6s ease-in-out 0.5s forwards;
   opacity: 0;
   position: relative;
+  min-height: 330px;
 }
 
 .closingStatementText {
@@ -193,6 +202,7 @@ p {
     letter-spacing: -0.48px;
     color: var(--text-black-opacity);
     padding: 0;
+    min-height: 0;
   }
 
   .teamCard {
@@ -275,7 +285,7 @@ p {
 
   .closingStatementWrapper {
     width: 310px;
-    height: 80px;
+    min-height: 80px;
     align-items: flex-start;
   }
 

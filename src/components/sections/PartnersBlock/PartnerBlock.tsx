@@ -1,59 +1,60 @@
+import { useTranslation } from 'react-i18next';
 import { TitlePartner, TitleHighlight } from '../../ui/h2/TitlePartner';
-
 import styles from './PartnerBlock.module.scss';
 
-export const PartnersBlock = () => (
-  <section className={styles.partnerBlock}>
-    <TitlePartner label='НАША ФИЛОСОФИЯ'>
-      надёжный партнер <TitleHighlight>УСПЕХ</TitleHighlight> бизнеса
-    </TitlePartner>
+export const PartnersBlock = () => {
+  const { t } = useTranslation();
 
-    {/* ДЕСКТОП */}
-    <div className={styles.desktopLayoutWrapper}>
-      <div className={styles.desktopGrid}>
-        {/* ЛЕВАЯ КОЛОНКА — ФОТОГРАФИЯ */}
-        <div className={styles.blockImg}>
-          <img
-            src='../src/assets/images/room.jpg'
-            alt='фотография комнаты'
-            className={styles.roomImg}
-          />
-        </div>
+  return (
+    <section className={styles.partnerBlock}>
+      <TitlePartner label={t('philosophy.label')}>
+        {t('philosophy.title.main')}{' '}
+        <TitleHighlight>{t('philosophy.title.highlight')}</TitleHighlight>
+      </TitlePartner>
 
-        {/* ЦЕНТРАЛЬНАЯ КОЛОНКА — ОПИСАНИЕ */}
-        <div className={styles.description}>
-          <p>
-            Мы предлагаем уникальный виджет для создания виртуальных туров,
-            которые позволяют вашим клиентам исследовать объекты недвижимости в
-            интерактивном формате.
-          </p>
-        </div>
+      {/* ДЕСКТОП */}
+      <div className={styles.desktopLayoutWrapper}>
+        <div className={styles.desktopGrid}>
+          {/* ЛЕВАЯ КОЛОНКА — ФОТОГРАФИЯ */}
+          <div className={styles.blockImg}>
+            <img
+              src='../src/assets/images/room.jpg'
+              alt='фотография комнаты'
+              className={styles.roomImg}
+            />
+          </div>
 
-        {/* ЦЕНТРАЛЬНАЯ КОЛОНКА — ЗАГОЛОВОК */}
-        <div className={styles.subTitleWrapper}>
-          <p className={styles.subTitle}>
-            <span>
-              преобразуйте своё <br />
-            </span>
-            <span>
-              представление о покупке недвижимости
+          {/* ЦЕНТРАЛЬНАЯ КОЛОНКА — ОПИСАНИЕ */}
+          <div className={styles.description}>
+            <p>{t('philosophy.text1')}</p>
+          </div>
+
+          {/* ЦЕНТРАЛЬНАЯ КОЛОНКА — ЗАГОЛОВОК */}
+          <div className={styles.subTitleWrapper}>
+            <p className={styles.subTitle}>
+              <span>{t('philosophy.text2.line1')}</span>
               <br />
-            </span>
-            <span className={styles.textAlignOne} />с интерактивными
-            виртуальными
-            <br />
-            <span className={styles.textAlignTwo}>3D турами</span>
-          </p>
-        </div>
+              <span>{t('philosophy.text2.line2')}</span>
+              <br />
+              <span className={styles.textAlignOne}>
+                {t('philosophy.text2.line3')}
+              </span>
+              <br />
+              <span className={styles.textAlignTwo}>
+                {t('philosophy.text2.line4')}
+              </span>
+            </p>
+          </div>
 
-        {/* ПРАВАЯ КОЛОНКА — ДЕКОРАТИВНЫЙ ЭЛЕМЕНТ */}
-        <div className={styles.imgPoint}>
-          <img
-            src='../src/assets/images/GroupPoints.svg'
-            alt='декоративный элемент векторной графики в виде абстрактных линий'
-          />
+          {/* ПРАВАЯ КОЛОНКА — ДЕКОР */}
+          <div className={styles.imgPoint}>
+            <img
+              src='../src/assets/images/GroupPoints.svg'
+              alt='декоративный элемент'
+            />
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};

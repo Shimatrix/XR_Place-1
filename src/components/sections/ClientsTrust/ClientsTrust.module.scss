@@ -1,4 +1,5 @@
 @import '../../../assets/styles/_variables.css';
+
 .section {
   padding: 150px 102px;
   background-color: var(--ui-white);
@@ -7,6 +8,7 @@
   min-height: 100vh;
   max-width: 1440px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .header {
@@ -36,6 +38,9 @@
   grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+  text-transform: uppercase;
+  transform-style: preserve-3d;
+  perspective: 1000px;
 
   .div1 {
     grid-area: 1 / 1 / 2 / 2;
@@ -54,5 +59,27 @@
   }
   .div6 {
     grid-area: 3 / 3 / 5 / 4;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+
+  .description {
+    margin: 20px 0;
+    max-width: 100%;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+    max-height: none;
+
+    > div {
+      grid-area: auto !important;
+    }
   }
 }
