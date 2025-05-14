@@ -5,6 +5,7 @@ import { BurgerButton } from '../../ui/burgerButton/BurgerButton';
 import { ModalWindow } from '../../ModalDemo/ModalDemo';
 import { XRLogo } from '../../ui/logo/logo';
 import { useTranslation } from 'react-i18next';
+import { useDisableScroll } from '../../../hooks/useDisableScroll/useDisableScroll';
 
 export function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +13,7 @@ export function Header() {
   const [isClosing, setIsClosing] = useState(false);
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language;
+  useDisableScroll(isMenuOpen && !isClosing);
 
   const changeLanguage = (lng: 'ru' | 'en') => {
     if (lng !== currentLang) i18n.changeLanguage(lng);
@@ -63,15 +65,6 @@ export function Header() {
 
       <div className={styles.menu}>
         <nav className={styles.nav}>
-          <a href='#'>{t('header.menu.about')}</a>
-          <span className={`${styles.divider} ${styles.firstDivider}`} />
-
-          <a href='#'>{t('header.menu.projects')}</a>
-          <span className={`${styles.divider} ${styles.secondDivider}`} />
-
-          <a href='#'>{t('header.menu.team')}</a>
-          <span className={`${styles.divider} ${styles.firstDivider}`} />
-
           <a
             href='#about-company'
             onClick={(e) => handleScrollToSection(e, 'about-company')}
@@ -135,22 +128,24 @@ export function Header() {
               href='#about-company'
               onClick={(e) => handleScrollToSection(e, 'about-company')}
             >
-              О КОМПАНИИ
+              {t('header.menu.aboutCompany')}
             </a>
+
             <a
               href='#how-it-works'
               onClick={(e) => handleScrollToSection(e, 'how-it-works')}
             >
-              КАК ЭТО РАБОТАЕТ
+              {t('header.menu.howItWorks')}
             </a>
+
             <a
               href='#about-widget'
               onClick={(e) => handleScrollToSection(e, 'about-widget')}
             >
-              ВОЗМОЖНОСТИ
+              {t('header.menu.features')}
             </a>
             <a href='#' onClick={handleOpenModal}>
-              Назначить ДЕМО
+              {t('howItWorks.button')}
             </a>
           </nav>
 
