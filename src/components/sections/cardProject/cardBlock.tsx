@@ -60,7 +60,7 @@ export const CardsBlock = () => {
       </div>
       {(isFourOrMoreCards || isMobile) && (
         <a href='#' className={styles.allProjectsButton}>
-          {isMobile ? 'projects.viewAllMobile' : 'projects.viewAll'}
+          {t(isMobile ? 'projects.viewAllMobile' : 'projects.viewAll')}
           <div className={styles.arrowIcon}>
             <ArrowButton color='#4d4d4d' mobileColor='#4d4d4d' />
           </div>
