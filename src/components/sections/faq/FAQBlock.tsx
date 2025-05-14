@@ -20,9 +20,9 @@ export const FAQBlock = () => {
       </Title>
       <div className={styles.accordionContainer}>
         {items.map((item, index) => (
-          <Accordion key={index} title={item}>
+          <AccordionItem key={index} title={item}>
             {answer}
-          </Accordion>
+          </AccordionItem>
         ))}
       </div>
     </div>
