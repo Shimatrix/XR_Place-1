@@ -7,8 +7,9 @@
   row-gap: 32px;
   min-height: 900px;
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
-  padding: 80px 0 0 0;
+  padding: 100px 7%;
 }
 
 .labelRow {
@@ -51,22 +52,18 @@
 .title {
   position: absolute;
   top: 145px;
-  left: 410px;
-  width: 907px;
-  height: 64px;
+  left: 28.5%;
+  width: 63%;
+  max-width: 907px;
   font-family: 'Inter', sans-serif;
   font-size: 64px;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -3.84px;
   color: #2d2d2d;
-  text-align: left;
   display: flex;
   align-items: center;
   gap: 0.2em;
-  z-index: 1;
-  padding-left: 0.1em;
-  text-transform: uppercase;
 }
 
 .accent {
@@ -83,8 +80,9 @@
 .desc1 {
   position: absolute;
   top: 230px;
-  left: 730px;
-  width: 378px;
+  left: 50.7%;
+  width: 26.25%;
+  max-width: 378px;
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 300;
@@ -96,8 +94,11 @@
 .desc2 {
   position: absolute;
   top: 315px;
-  left: 416px;
-  width: 404px;
+
+  left: 28.9%;
+  width: 28.06%;
+  max-width: 404px;
+
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 300;
@@ -109,11 +110,14 @@
 .contentRow {
   position: absolute;
   top: 440px;
-  left: 100px;
-  width: 1240px;
-  height: 290px;
+
+  /* вместо «left:100px; width:1240px;»: */
+  left: 7%;
+  right: 7%;
+  width: auto;
+  max-width: 1240px;
+
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   z-index: 1;

@@ -1,12 +1,13 @@
 @import '../../../assets/styles/_variables.css';
 
 .section {
-  padding: 150px 102px;
+  padding: 100px 7%;
   background-color: var(--ui-white);
   box-sizing: border-box;
   font-family: var(--font-inter);
   min-height: 100vh;
   max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
