@@ -1,22 +1,14 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './AboutWidget.module.scss';
 import { mockAboutWidget } from '../../../mocks/aboutWidgetData';
+
 import widgetImg from '../../../assets/images/widget/widget.png';
 import widgetImg1 from '../../../assets/images/widget/widget-01.png';
 import widgetImg2 from '../../../assets/images/widget/widget-02.png';
 import widgetImg3 from '../../../assets/images/widget/widget-03.png';
 import widgetImg4 from '../../../assets/images/widget/widget-04.png';
 import widgetImg5 from '../../../assets/images/widget/widget-05.png';
-
-const features = [
-  'ПАНОРАМНЫЙ ОБЗОР ЗДАНИЯ',
-  'ПЛАНИРОВКА И ИНТЕРЬЕР',
-  'СВОБОДА ПЕРЕМЕЩЕНИЯ',
-  'ТОЧНОСТЬ ПЛАНИРОВКИ',
-  'ИНТЕРАКТИВНОСТЬ',
-  'КРОССПЛАТФОРМЕННОСТЬ'
-];
 
 const featureImages = [
   widgetImg,
@@ -28,27 +20,31 @@ const featureImages = [
 ];
 
 const AboutWidget: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<null | number>(null);
-
+  const { t } = useTranslation();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const imageIndex = activeIndex !== null ? activeIndex : 0;
+
+  const features: string[] = t('widget.features', {
+    returnObjects: true
+  }) as string[];
+  const description = t('widget.description');
+  const [desc1, ...descRest] = description.split('. ');
+  const desc2 = descRest.join('. ');
 
   return (
     <section id='about-widget' className={styles.aboutWidgetBlock}>
-      <span className={styles.label}>ВИДЖЕТ</span>
+      <span className={styles.label}>{t('widget.label')}</span>
       <h2 className={styles.title}>
-        ЧТО <span className={styles.accent}>УМЕЕТ</span> ВИДЖЕТ
+        {t('widget.title.main')}{' '}
+        <span className={styles.accent}>{t('widget.title.highlight')}</span>
       </h2>
-      <div className={styles.desc1}>
-        Наш виджет позволяет создавать захватывающее и реалистичное
-        представление об объекте недвижимости
-      </div>
-      <div className={styles.desc2}>
-        Это помогает вашим клиентам принимать обоснованные решения. Мы
-        предлагаем простые в использовании решения, которые легко интегрируются
-        в ваши бизнес-процессы.
-      </div>
+
+      <div className={styles.desc1}>{desc1.trim()}.</div>
+      <div className={styles.desc2}>{desc2.trim()}</div>
+
       <div className={styles.contentRow}>
         <div className={styles.verticalLine} />
+
         <div className={styles.featuresList}>
           {features.map((feature, index) => (
             <div
@@ -61,10 +57,11 @@ const AboutWidget: React.FC = () => {
             </div>
           ))}
         </div>
+
         <div className={styles.featureContent}>
           <img
             src={featureImages[imageIndex]}
-            alt={`Виджет: ${features[imageIndex]}`}
+            alt={`Widget feature ${imageIndex + 1}`}
             className={styles.widgetImg}
           />
           {activeIndex !== null && (
