@@ -1,151 +1,13 @@
-@import '../../../assets/styles/_variables.css';
-
 .footer {
-  background: #171717;
-  color: var(--ui-white);
-  font-family: var(--font-inter);
-  width: 100%;
-  position: relative;
-  overflow: hidden;
+  background: #2c3e50;
+  color: white;
+  padding: 1.5rem 0;
+  margin-top: auto;
 
-  .footer_content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin: 100px 0 150px 98px;
-    gap: 113px;
-  }
-
-  .footer_section {
-    h3 {
-      text-transform: uppercase;
-      font-size: var(--text-m);
-      font-weight: 400;
-      margin: 0;
-    }
-
-    a {
-      color: #eee;
-      text-decoration: none;
-    }
-
-    p {
-      color: var(--grey-light-opacity);
-      text-transform: none;
-      width: 306px;
-      letter-spacing: -0.03em;
-      align-self: stretch;
-      margin: 0;
-    }
-  }
-
-  .contacts_section h3 {
-    margin-bottom: 16px;
-  }
-
-  .menu_section h3 {
-    margin-bottom: 20px;
-  }
-
-  .social_section h3 {
-    margin-bottom: 22px;
-  }
-
-  .menu_list {
-    list-style-type: none;
-    font-size: var(--text-xs);
-    line-height: var(--leading-dense);
-    padding: 0;
-    margin: 0;
-
-    li:not(:last-child) {
-      padding-bottom: 20px;
-    }
-  }
-
-  .social_list {
-    list-style-type: none;
-    font-size: var(--text-s);
-    line-height: var(--leading-normal);
-    font-weight: 300;
-    letter-spacing: -0.03em;
-    padding: 0;
-    margin: 0;
-
-    li {
-      padding: 2px 0;
-    }
-
-    li:first-child {
-      padding-top: 4px;
-    }
-
-    li:not(:last-child) {
-      padding-bottom: 24px;
-    }
-  }
-
-  .start_button {
-    position: absolute;
-    top: 98px;
-    right: 100px;
-
-    button {
-      text-transform: uppercase;
-      font-size: var(--text-m);
-      font-family: var(--font-helvetica);
-      color: var(--text-grey);
-      border: none;
-      background-color: transparent;
-      cursor: pointer;
-    }
-
-    img {
-      width: 13px;
-      height: 13px;
-      margin-left: 5px;
-    }
-  }
-
-  .lable {
-    position: relative;
-    font-size: 242px;
-    font-weight: 700;
-    background: linear-gradient(
-      180deg,
-      #04382e 0%,
-      #066553 42.3%,
-      #087e68 71.8%,
-      #0bb696 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 0 0 -30px 0;
-    left: -63px;
-    right: 0;
-    line-height: 0.8;
-    white-space: nowrap;
-    letter-spacing: 4px;
-    transform: scaleX(1.2);
-    transform-origin: left center;
-    z-index: 1;
-  }
-
-  .data_cooki_container {
+  .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #171717;
-    z-index: 2;
-    position: relative;
-    margin-top: -20px;
-
-    p {
-      color: var(--grey-opacity);
-    }
   }
 
   .links {
@@ -153,7 +15,7 @@
     gap: 15px;
 
     a {
-      color: var(--grey-opacity);
+      color: #42b983;
       text-decoration: none;
 
       &:hover {
