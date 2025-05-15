@@ -9,7 +9,7 @@ type AccordionProps = {
 
 export const AccordionItem = ({ title, children }: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const contentRef = useRef<any>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState('0px');
 
   useEffect(() => {
@@ -36,7 +36,9 @@ export const AccordionItem = ({ title, children }: AccordionProps) => {
         className={styles.accordionItemContent}
         style={{ height }}
       >
-        <div className={styles.accordionItemText}>
+        <div
+          className={`${styles.accordionItemText} ${isOpen ? styles.slideFadeIn : ''}`}
+        >
           <p>{children}</p>
         </div>
       </div>

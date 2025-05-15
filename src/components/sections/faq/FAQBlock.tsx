@@ -14,15 +14,24 @@ export const FAQBlock = () => {
 
   return (
     <div className={styles.block}>
-      <Title label={t('faq.label')} className={styles.titleContainer}>
-        <TitleHighlight>{highlight} </TitleHighlight>
-        {rest.join(' ')}
+      <Title
+        label={<span className={styles.labelFade}>{t('faq.label')}</span>}
+        className={styles.titleContainer}
+      >
+        <span className={styles.titleMask}>
+          <TitleHighlight className={styles.titleSlide}>
+            {highlight}
+          </TitleHighlight>
+        </span>
+        <span className={styles.titleMask}>
+          <span className={styles.titleSlide}> {rest.join(' ')}</span>
+        </span>
       </Title>
       <div className={styles.accordionContainer}>
         {items.map((item, index) => (
-          <Accordion key={index} title={item}>
+          <AccordionItem key={index} title={item}>
             {answer}
-          </Accordion>
+          </AccordionItem>
         ))}
       </div>
     </div>
