@@ -19,6 +19,15 @@ const featureImages = [
   widgetImg5
 ];
 
+const featureKeys = [
+  'panoramic',
+  'layout',
+  'movement',
+  'accuracy',
+  'interactivity',
+  'crossplatform'
+];
+
 const AboutWidget: React.FC = () => {
   const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -30,6 +39,9 @@ const AboutWidget: React.FC = () => {
   const description = t('widget.description');
   const [desc1, ...descRest] = description.split('. ');
   const desc2 = descRest.join('. ');
+
+  const getFeatureDescription = (index: number) =>
+    t(`widget.featureDescriptions.${featureKeys[index]}`);
 
   return (
     <section id='about-widget' className={styles.aboutWidgetBlock}>
@@ -70,7 +82,7 @@ const AboutWidget: React.FC = () => {
                 {mockAboutWidget[activeIndex].number}
               </div>
               <div className={styles.featureText}>
-                {mockAboutWidget[activeIndex].text}
+                {getFeatureDescription(activeIndex)}
               </div>
             </div>
           )}

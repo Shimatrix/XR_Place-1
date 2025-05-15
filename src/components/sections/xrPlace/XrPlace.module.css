@@ -1,11 +1,10 @@
 /* вся секция  */
 .block {
-  max-width: 1440px;
-  width: 100%;
+  width: 1442px;
   margin: 0 auto;
   position: relative;
   margin-top: 50px;
-  padding: 100px 7%;
+  padding: 100px 102px;
 }
 
 /* текст xr place  */

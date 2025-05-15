@@ -45,7 +45,15 @@
       "Layout accuracy",
       "Interactivity",
       "Cross-platform compatibility"
-    ]
+    ],
+    "featureDescriptions": {
+      "panoramic": "Customers will see a complete copy of the property, even if it's still under construction or located in another country",
+      "layout": "Thanks to the widget, customers can study the layout and interior design. This helps them visualize their apartment more realistically",
+      "movement": "The widget allows users to easily move between different rooms of the apartments, making it easier to choose suitable housing",
+      "accuracy": "The 3D widget allows you to see the exact layout, including room dimensions, window and door locations, and the view from the window",
+      "interactivity": "Users interact with real estate objects like in a computer game. This makes the housing selection process more exciting and interesting. As a result, customers stay on the site longer and return to use the widget again",
+      "crossplatform": "You can use our widget on desktop, phone, tablet, and even VR glasses in the company office to show users maximum immersion"
+    }
   },
   "cooperation": {
     "label": "Cooperation",
