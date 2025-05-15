@@ -3,7 +3,7 @@
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
     "typeRoots": ["./node_modules/@types", "./src/types"],
-    "types": ["react", "react-dom", "node"]
+    "types": ["react", "react-dom", "node", "intersection-observer"]
   },
   "references": [
     { "path": "./tsconfig.app.json" },

@@ -1,48 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styles from './AboutWidget.module.scss';
-import widgetImg from '../../../assets/images/widget/widget.png';
+import { mockAboutWidget } from '../../../mocks/aboutWidgetData';
 
-const features = [
-  'ПАНОРАМНЫЙ ОБЗОР ЗДАНИЯ',
-  'ПЛАНИРОВКА И ИНТЕРЬЕР',
-  'СВОБОДА ПЕРЕМЕЩЕНИЯ',
-  'ТОЧНОСТЬ ПЛАНИРОВКИ',
-  'ИНТЕРАКТИВНОСТЬ',
-  'КРОССПЛАТФОРМЕННОСТЬ'
+import widgetImg from '../../../assets/images/widget/widget.png';
+import widgetImg1 from '../../../assets/images/widget/widget-01.png';
+import widgetImg2 from '../../../assets/images/widget/widget-02.png';
+import widgetImg3 from '../../../assets/images/widget/widget-03.png';
+import widgetImg4 from '../../../assets/images/widget/widget-04.png';
+import widgetImg5 from '../../../assets/images/widget/widget-05.png';
+
+const featureImages = [
+  widgetImg,
+  widgetImg1,
+  widgetImg2,
+  widgetImg3,
+  widgetImg4,
+  widgetImg5
 ];
 
-const AboutWidget: React.FC = () => (
-  <section className={styles.aboutWidgetBlock}>
-    <span className={styles.label}>ВИДЖЕТ</span>
-    <h2 className={styles.title}>
-      ЧТО <span className={styles.accent}>УМЕЕТ</span> ВИДЖЕТ
-    </h2>
-    <div className={styles.desc1}>
-      Наш виджет позволяет создавать захватывающее и реалистичное представление
-      об объекте недвижимости
-    </div>
-    <div className={styles.desc2}>
-      Это помогает вашим клиентам принимать обоснованные решения. Мы предлагаем
-      простые в использовании решения, которые легко интегрируются в ваши
-      бизнес-процессы.
-    </div>
-    <div className={styles.contentRow}>
-      <div className={styles.verticalLine} />
-      <div className={styles.featuresList}>
-        {features.map((feature, index) => (
-          <div key={index} className={styles.featureItem}>
-            <span className={styles.separator} />
-            {feature}
-          </div>
-        ))}
+const featureKeys = [
+  'panoramic',
+  'layout',
+  'movement',
+  'accuracy',
+  'interactivity',
+  'crossplatform'
+];
+
+const AboutWidget: React.FC = () => {
+  const { t } = useTranslation();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const imageIndex = activeIndex !== null ? activeIndex : 0;
+
+  const features: string[] = t('widget.features', {
+    returnObjects: true
+  }) as string[];
+  const description = t('widget.description');
+  const [desc1, ...descRest] = description.split('. ');
+  const desc2 = descRest.join('. ');
+
+  const getFeatureDescription = (index: number) =>
+    t(`widget.featureDescriptions.${featureKeys[index]}`);
+
+  return (
+    <section id='about-widget' className={styles.aboutWidgetBlock}>
+      <span className={styles.label}>{t('widget.label')}</span>
+      <h2 className={styles.title}>
+        {t('widget.title.main')}{' '}
+        <span className={styles.accent}>{t('widget.title.highlight')}</span>
+      </h2>
+
+      <div className={styles.desc1}>{desc1.trim()}.</div>
+      <div className={styles.desc2}>{desc2.trim()}</div>
+
+      <div className={styles.contentRow}>
+        <div className={styles.verticalLine} />
+
+        <div className={styles.featuresList}>
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className={`${styles.featureItem} ${activeIndex === index ? styles.active : ''}`}
+              onClick={() => setActiveIndex(index)}
+            >
+              <span className={styles.separator} />
+              {feature}
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.featureContent}>
+          <img
+            src={featureImages[imageIndex]}
+            alt={`Widget feature ${imageIndex + 1}`}
+            className={styles.widgetImg}
+          />
+          {activeIndex !== null && (
+            <div className={styles.featureDescription}>
+              <div className={styles.featureNumber}>
+                {mockAboutWidget[activeIndex].number}
+              </div>
+              <div className={styles.featureText}>
+                {getFeatureDescription(activeIndex)}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-      <img
-        src={widgetImg}
-        alt='Скриншот виджета'
-        className={styles.widgetImg}
-      />
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default AboutWidget;
