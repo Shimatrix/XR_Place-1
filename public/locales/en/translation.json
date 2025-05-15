@@ -126,7 +126,11 @@
   },
   "faq": {
     "label": "FAQ",
-    "title": "Questions for Our Team",
+    "titleLine1": {
+      "highlight": "Questions",
+      "rest": "for"
+    },
+    "titleLine2": "Our Team",
     "items": [
       "How can I install the widget on my site?",
       "Can I customize the widget for my brand?",

@@ -8,25 +8,30 @@ export const FAQBlock = () => {
 
   const items = t('faq.items', { returnObjects: true }) as string[];
   const answer = t('faq.answer');
+  const label = t('faq.label');
 
-  const title = t('faq.title');
-  const [highlight, ...rest] = title.split(' ');
+  const titleLine1 = t('faq.titleLine1', { returnObjects: true }) as {
+    highlight: string;
+    rest: string;
+  };
+  const titleLine2 = t('faq.titleLine2');
 
   return (
     <div className={styles.block}>
-      <Title
-        label={<span className={styles.labelFade}>{t('faq.label')}</span>}
-        className={styles.titleContainer}
-      >
-        <span className={styles.titleMask}>
-          <TitleHighlight className={styles.titleSlide}>
-            {highlight}
-          </TitleHighlight>
-        </span>
-        <span className={styles.titleMask}>
-          <span className={styles.titleSlide}> {rest.join(' ')}</span>
-        </span>
+      <Title label={label}>
+        <div className={styles.titleContainer}>
+          <span className={styles.titleMask}>
+            <span className={styles.titleSlide}>
+              <TitleHighlight>{titleLine1.highlight}</TitleHighlight>{' '}
+              {titleLine1.rest}
+            </span>
+          </span>
+          <span className={styles.titleMask}>
+            <span className={styles.titleSlide}>{titleLine2}</span>
+          </span>
+        </div>
       </Title>
+
       <div className={styles.accordionContainer}>
         {items.map((item, index) => (
           <AccordionItem key={index} title={item}>
