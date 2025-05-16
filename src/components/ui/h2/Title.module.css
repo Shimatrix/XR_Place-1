@@ -1,10 +1,9 @@
 @import '../../../assets/styles/_variables.css';
 .container {
-  display: inline-flex;
+  display: flex;
   align-items: flex-start;
-  gap: 206px;
-  /* width: 610px; */
-  margin-left: 100px;
+  width: 100%;
+  gap: 18.5%;
 }
 
 .label {
@@ -32,10 +31,34 @@
   line-height: 100%;
   letter-spacing: -3.84px;
   text-transform: uppercase;
-  margin: 0;
   text-align: left;
+  max-width: 610px;
 }
 
 .highlight {
   color: var(--primary, #055042);
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .label {
+    font-style: 'Monrope';
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .heading {
+    color: #2d2d2d;
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
+
+  .highlight {
+    color: #2d2d2d;
+  }
 }

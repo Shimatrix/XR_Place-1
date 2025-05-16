@@ -1,0 +1,99 @@
+.accordionItem {
+  border-top: 0.5px solid #a3a3a3;
+  border-bottom: 0.5px solid #a3a3a3;
+  background-color: var(--ui-white);
+  transition: border-bottom 0.3s ease;
+  margin-top: -5px;
+}
+
+.accordionItemOpen {
+  border-bottom: none;
+}
+
+.accordionItemButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-helvetica);
+  text-transform: uppercase;
+  font-size: var(--text-m);
+  line-height: 28px;
+  font-weight: 400;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 20px 0;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+.accordionItemContent {
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
+.accordionItemText {
+  width: 859px;
+  color: var(--text-grey);
+  font-family: var(--font-helvetica);
+  font-size: var(--text-xs);
+  font-weight: 300;
+  line-height: 120%;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: background-color 0.3s ease;
+}
+
+.slideFadeIn {
+  animation: slideFadeIn 0.4s ease forwards;
+  background-color: #f9f9f9;
+}
+
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    background-color: transparent;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    background-color: #f9f9f9;
+  }
+}
+
+.accordionItemIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.accordionItemText p {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+@media (max-width: 1024px) {
+  .accordionItemText {
+    width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .accordionItemButton {
+    font-size: var(--text-s);
+    padding: 16px 0;
+  }
+
+  .accordionItemTitle {
+    width: 276px;
+  }
+
+  .accordionItemIcon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .accordionItemText {
+    width: 310px;
+  }
+}

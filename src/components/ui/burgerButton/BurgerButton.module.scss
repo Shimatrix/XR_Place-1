@@ -1,0 +1,54 @@
+.burgerButton {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  width: 32px;
+  height: 32px;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:not(.open) {
+    .burgerLine {
+      width: 100%;
+      height: 2px;
+      background-color: #777;
+      transition: all 0.3s ease;
+
+      &:nth-child(2) {
+        margin: 6px 0;
+      }
+    }
+  }
+
+  // Крестик
+  &.open {
+    width: 32px;
+    height: 32px;
+
+    .crossIcon {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      font-size: 35px;
+      line-height: 1;
+      color: #777;
+      font-weight: 100;
+      border: none;
+    }
+
+    .burgerLine {
+      display: none;
+    }
+  }
+}
