@@ -7,13 +7,15 @@ export const PartnersBlock = () => {
 
   return (
     <section className={styles.partnerBlock}>
-      <TitlePartner label={t('philosophy.label')}>
-        {t('philosophy.title.main')}{' '}
-        <TitleHighlight>{t('philosophy.title.highlight')}</TitleHighlight>
-      </TitlePartner>
-
       {/* ДЕСКТОП */}
       <div className={styles.desktopLayoutWrapper}>
+        <div className={styles.animationTitle}>
+          <TitlePartner label={t('philosophy.label')}>
+            {t('philosophy.title.main')}{' '}
+            <TitleHighlight>{t('philosophy.title.highlight')}</TitleHighlight>
+          </TitlePartner>
+        </div>
+        <div className={styles.scrollLine} />
         <div className={styles.desktopGrid}>
           {/* ЛЕВАЯ КОЛОНКА — ФОТОГРАФИЯ */}
           <div className={styles.blockImg}>
@@ -52,6 +54,41 @@ export const PartnersBlock = () => {
               src='../src/assets/images/GroupPoints.svg'
               alt='декоративный элемент'
             />
+          </div>
+        </div>
+      </div>
+
+      {/* МОБИЛЬНАЯ ВЕРСИЯ */}
+      <div className={styles.mobileLayoutWrapper}>
+        <div className={styles.mobileGrid}>
+          <div className={styles.animationTitle}>
+            <TitlePartner label={t('philosophy.label')}>
+              <div className={styles.mobileTitle}>
+                {t('philosophy.title.main')}
+                <TitleHighlight>
+                  {t('philosophy.title.highlight')}
+                </TitleHighlight>
+              </div>
+            </TitlePartner>
+          </div>
+          {/* ОПИСАНИЕ */}
+          <div className={styles.mobileDescription}>
+            <p>{t('philosophy.text1')}</p>
+          </div>
+          {/* ИЗОБРАЖЕНИЕ */}
+          <div className={styles.mobileImg}>
+            <img
+              src='../src/assets/images/room.jpg'
+              alt='фотография комнаты'
+              className={styles.roomImg}
+            />
+          </div>
+          {/* ПОДЗАГОЛОВОК */}
+          <div className={styles.mobileSubTitleWrapper}>
+            <p className={styles.subTitle}> {t('philosophy.text2.line1')}</p>
+            <p className={styles.subTitle}> {t('philosophy.text2.line2')}</p>
+            <p className={styles.subTitle}> {t('philosophy.text2.line3')} </p>
+            <p className={styles.subTitle}> {t('philosophy.text2.line4')}</p>
           </div>
         </div>
       </div>

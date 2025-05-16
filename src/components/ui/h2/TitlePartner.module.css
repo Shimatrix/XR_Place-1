@@ -3,7 +3,7 @@
   gap: 96px;
   flex-wrap: nowrap;
   width: 100%;
-  animation: slideUpMask 0.6s ease-in-out forwards;
+  /* animation: slideUpMask 0.6s ease-in-out forwards; */
   align-items: flex-start;
 }
 
@@ -44,7 +44,6 @@
     align-items: flex-start;
     gap: 30px;
     margin-bottom: 30px;
-    padding-left: 25px;
   }
 
   .label {
@@ -65,7 +64,6 @@
     font-weight: 300;
     line-height: 100%;
     letter-spacing: -1.92px;
-    color: var(--primary);
     margin: 0;
     text-align: left;
   }
