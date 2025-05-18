@@ -40,6 +40,9 @@ const AboutWidget: React.FC = () => {
   const [desc1, ...descRest] = description.split('. ');
   const desc2 = descRest.join('. ');
 
+  // Разбиваем заголовок "Что умеет" на две части
+  const [titleWhat, titleUmeyet] = t('widget.title.main').split(' ');
+
   const getFeatureDescription = (index: number) =>
     t(`widget.featureDescriptions.${featureKeys[index]}`);
 
@@ -47,17 +50,16 @@ const AboutWidget: React.FC = () => {
     <section id='about-widget' className={styles.aboutWidgetBlock}>
       <span className={styles.label}>{t('widget.label')}</span>
       <h2 className={styles.title}>
-        {t('widget.title.main')}{' '}
-        <span className={styles.accent}>{t('widget.title.highlight')}</span>
+        {titleWhat} <span className={styles.accent}>{titleUmeyet}</span>{' '}
+        {t('widget.title.highlight')}
       </h2>
 
       <div className={styles.desc1}>{desc1.trim()}.</div>
       <div className={styles.desc2}>{desc2.trim()}</div>
 
       <div className={styles.contentRow}>
-        <div className={styles.verticalLine} />
-
         <div className={styles.featuresList}>
+          <div className={styles.verticalLine} />
           {features.map((feature, index) => (
             <div
               key={index}
