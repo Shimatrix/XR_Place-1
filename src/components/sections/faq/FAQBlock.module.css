@@ -51,3 +51,9 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 767px) {
+  .block {
+    padding: 60px 7%;
+  }
+}
