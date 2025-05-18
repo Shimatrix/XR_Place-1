@@ -250,7 +250,7 @@
     margin: 0 auto;
     position: relative;
     margin-top: 50px;
-    padding: 21px 24px 0 21px;
+    padding: 24px 20px 0 20px;
   }
 
   .content {
@@ -283,6 +283,10 @@
     align-items: center;
     margin-left: 73px;
     margin-top: 8px;
+  }
+
+  .left_block {
+    margin-bottom: 35px;
   }
 
   .img_label {
