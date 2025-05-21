@@ -1,0 +1,59 @@
+.block {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 7%;
+  position: relative;
+  overflow: hidden;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.titleMask {
+  overflow: hidden;
+  display: block;
+  position: relative;
+}
+
+.titleSlide {
+  display: block;
+  transform: translateY(100%);
+  animation: slideUp 0.7s ease-out forwards;
+}
+
+.titleMask:nth-child(1) .titleSlide {
+  animation-delay: 0.3s;
+}
+
+.titleMask:nth-child(2) .titleSlide {
+  animation-delay: 0.5s;
+}
+
+.accordionContainer {
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 0.8s;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .block {
+    padding: 60px 7%;
+  }
+}

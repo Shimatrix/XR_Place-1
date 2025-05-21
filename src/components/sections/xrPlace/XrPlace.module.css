@@ -1,0 +1,399 @@
+/* вся секция  */
+.block {
+  width: 1442px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 50px;
+  padding: 100px 102px;
+}
+
+/* текст xr place  */
+.main_title {
+  font-family: 'Gotham', sans-serif;
+  font-size: clamp(4.4375rem, 1.267rem + 13.5275vw, 17.5rem);
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.1em;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: linear-gradient(to bottom, #056654 0%, #000000 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* контент в блоке   */
+.content {
+  display: flex;
+  gap: 65px;
+}
+
+/* левая часть   */
+.left_block {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 40px;
+  width: 342px;
+  margin-bottom: 92px;
+}
+
+/* текст краткого описания   */
+.text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.25rem, 1.2197rem + 0.1294vw, 1.375rem);
+  line-height: 120%;
+  font-weight: 400;
+  color: #444444;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 1.1s;
+}
+
+/* правая часть   */
+.right_block {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+/* лейбл    */
+.text_label {
+  font-family: 'Helvetica', sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  line-height: 22px;
+  font-size: 16px;
+  color: #c6c6c6;
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 1.1s;
+}
+
+/* 3д картинка   */
+.img_label {
+  width: clamp(157px, 30vw, 587px);
+  height: clamp(196px, 30vw, 578px);
+  object-fit: cover;
+  object-position: center;
+  background: linear-gradient(
+    to bottom,
+    #00161d 0%,
+    #00161d 60%,
+    transparent 100%
+  );
+  background-position: center;
+  background-size: cover;
+  margin-left: 243px;
+  animation: curtainDown 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+}
+
+/* вертикальная линия    */
+.vertical_line {
+  position: absolute;
+  left: 34.5%;
+  top: 14%;
+  width: 2px;
+  height: 78%;
+  background-color: #c6c6c6;
+  animation: curtainDown 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+}
+
+/* линия горизонтальная правая   */
+.line_right {
+  position: absolute;
+  top: 34.6%;
+  left: 34.5%;
+  height: 2px;
+  width: 59%;
+  background-color: #c6c6c6;
+  transform-origin: right center;
+  animation: scaleX 0.5s ease-out forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+/* линия горизонтальная левая    */
+.line_left {
+  position: absolute;
+  top: 59.1%;
+  left: 1%;
+  height: 2px;
+  width: 33.5%;
+  background-color: #c6c6c6;
+  transform-origin: left center;
+  animation: scaleX 0.5s ease-out forwards;
+  animation-delay: 1.2s;
+  opacity: 0;
+}
+
+/* крест  */
+.cross {
+  position: absolute;
+  top: 57.1%;
+  left: 32.9%;
+  width: 46px;
+  height: 50px;
+}
+
+.cross::before,
+.cross::after {
+  content: '';
+  position: absolute;
+  background-color: #525252;
+}
+
+.cross::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.cross::after {
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+/* уловая стрелка   */
+.corner {
+  position: relative;
+  width: 43px;
+  height: 46px;
+  top: 522px;
+  animation-delay: 1.7s;
+}
+
+.corner::before,
+.corner::after {
+  content: '';
+  position: absolute;
+  background-color: #525252;
+}
+
+.corner::before {
+  width: 2px;
+  height: 100%;
+  left: -2px;
+  top: 0;
+}
+
+.corner::after {
+  width: 100%;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+}
+
+/* стрела   */
+.corner_arrow {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 0px;
+  bottom: -5.3px;
+  transform: rotate(310deg);
+  border-right: 2px solid #535353;
+  border-bottom: 2px solid #535353;
+}
+
+/* квадрат  с точками    */
+.dot_figure {
+  position: absolute;
+  top: 39%;
+  left: 16%;
+  width: clamp(3.75rem, 3.0218rem + 3.1068vw, 6.75rem);
+  height: clamp(3.75rem, 3.0218rem + 3.1068vw, 6.75rem);
+  background-image: radial-gradient(#d8d8d8 2.45px, transparent 3.45px);
+  background-size: 12px 12px;
+  z-index: 1;
+  animation-delay: 1.5s;
+}
+
+/* круг с диагональными линиями    */
+.diagonal_figure {
+  position: absolute;
+  top: 70.4%;
+  left: 39%;
+  width: clamp(4rem, 3.1505rem + 3.6246vw, 7.5rem);
+  height: clamp(4rem, 3.1505rem + 3.6246vw, 7.5rem);
+  border-radius: 50%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    #dfdfdf,
+    #dfdfdf 2px,
+    transparent 2px,
+    transparent 9px
+  );
+  animation-delay: 1.6s;
+}
+
+@media (width <=375px) {
+  .block {
+    width: 360px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 50px;
+    padding: 24px 20px 0 20px;
+  }
+
+  .content {
+    flex-direction: column-reverse;
+    gap: 75px;
+  }
+
+  .vertical_line {
+    left: 33.5%;
+    top: 3%;
+    width: 2px;
+    height: 50%;
+  }
+
+  .line_right {
+    top: 13%;
+    left: 34%;
+    height: 2px;
+    width: 61%;
+  }
+
+  .line_left {
+    top: 41.7%;
+    height: 2px;
+    width: 33.5%;
+  }
+
+  .right_block {
+    gap: 6px;
+    align-items: center;
+    margin-left: 73px;
+    margin-top: 8px;
+  }
+
+  .left_block {
+    margin-bottom: 35px;
+  }
+
+  .img_label {
+    margin-left: 92px;
+  }
+
+  .dot_figure {
+    top: 28%;
+    left: 13%;
+    background-image: radial-gradient(#d8d8d8 1px, transparent 2px);
+    background-size: 8.5px 6.5px;
+  }
+
+  .diagonal_figure {
+    top: 16.2%;
+    left: 5%;
+    background-image: repeating-linear-gradient(
+      45deg,
+      #dfdfdf,
+      #dfdfdf 2px,
+      transparent 2px,
+      transparent 5px
+    );
+  }
+
+  .cross {
+    position: absolute;
+    top: 38.2%;
+    left: 27.5%;
+  }
+
+  .left_block {
+    gap: 29px;
+  }
+
+  .corner {
+    display: none;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleX {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes appearFromCenter {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes curtainDown {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+
+.dot_figure,
+.diagonal_figure,
+.corner {
+  opacity: 0;
+  transform: scale(0);
+  animation: appearFromCenter 0.6s ease-out forwards;
+}
+
+.button_demo_animation {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+  animation-delay: 1.3s;
+}

@@ -1,0 +1,285 @@
+@import '../../../assets/styles/_variables.css';
+
+p {
+  margin: 0;
+}
+
+.partnerBlock {
+  padding: 100px 7%;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: var(--font-inter);
+  position: relative;
+}
+
+.desktopGrid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 0fr;
+  align-items: flex-start;
+}
+
+.blockImg {
+  margin-top: 16px;
+  grid-column: 1 / 2;
+  // animation: slideDownMask 0.5s ease-in-out 0.5s forwards;
+}
+
+.description {
+  grid-column: 2 / 3;
+  line-height: var(--leading-normal);
+  color: var(--text-grey);
+  max-width: 398px;
+  font-weight: 300;
+  font-size: var(--text-s);
+  line-height: 120%;
+  letter-spacing: -0.6px;
+  margin-top: 20px;
+  margin-left: 230px;
+  // opacity: 1;
+}
+
+.subTitleWrapper {
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: -72px;
+  margin-left: 315px;
+  min-width: 814px;
+  white-space: nowrap;
+  display: block;
+  // animation: slideUpMask 0.5s ease-in-out 0.5s forwards;
+}
+
+.subTitle {
+  line-height: var(--leading-normal);
+  color: var(--text-black);
+  font-weight: 300;
+  font-size: var(--text-xl);
+  letter-spacing: -2.72px;
+  text-transform: uppercase;
+  display: block;
+  line-height: 100%;
+  margin-left: 90px;
+}
+
+.textAlignOne {
+  margin-left: -90px;
+}
+
+.textAlignTwo {
+  margin-left: 300px;
+}
+
+.roomImg {
+  width: 399px;
+  height: 247px;
+  object-fit: contain;
+}
+
+.imgPoint {
+  grid-column: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.scrollLine {
+  position: absolute;
+  top: 517px;
+  width: 100%;
+  height: 100%;
+  background-image: url('../src/assets/images/greenLine.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.mobileLayoutWrapper {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .desktopLayoutWrapper {
+    display: none;
+  }
+
+  .partnerBlock {
+    padding: 60px 20px;
+  }
+
+  .mobileLayoutWrapper {
+    display: block;
+    // animation: fadeIn 0.5s ease-in-out 0.4s forwards;
+    opacity: 0;
+  }
+
+  .mobileTitle {
+    display: flex;
+    flex-direction: column;
+    // animation: slideUpMask 0.5s ease-in-out 0.3s forwards;
+    align-items: flex-start;
+  }
+
+  .mobileGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mobileDescription {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 32px;
+    line-height: 100%;
+    color: var(--text-primary-grey);
+  }
+
+  .mobileImg {
+    width: 100%;
+    margin-bottom: 20px;
+    // animation: slideDownMask 0.5s ease-in-out 0.5s forwards;
+  }
+
+  .mobileSubTitleWrapper {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+  }
+
+  .roomImg {
+    width: 100%;
+    height: 208px;
+    object-fit: contain;
+  }
+
+  .subTitle {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 100%;
+    color: var(--text-primary-grey);
+    letter-spacing: -1.2px;
+    margin-left: 0;
+    // animation: slideUpMask 0.5s ease-in-out 0.5s forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpMask {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+    clip-path: inset(100% 0 0 0);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes slideDownMask {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animationTitle,
+.blockImg,
+.description,
+.subTitleWrapper,
+.imgPoint,
+.mobileLayoutWrapper,
+.mobileTitle,
+.mobileDescription,
+.mobileImg,
+.mobileSubTitleWrapper,
+.mobileAnimationTitle,
+.mobileTitle {
+  opacity: 0;
+  will-change: transform, opacity, clip-path;
+}
+
+.animationTitle.visible {
+  animation: slideUpMask 0.6s ease-out 0.4s forwards;
+}
+
+.blockImg.visible {
+  animation: slideDownMask 0.6s ease-out 0.7s forwards;
+}
+
+.description.visible {
+  animation: fadeIn 0.5s ease-in-out 1s forwards;
+}
+
+.subTitleWrapper,
+.mobileLayoutWrapper .visible {
+  animation: slideUpMask 0.6s ease-out 1.2s forwards;
+}
+
+.imgPoint.visible {
+  animation: fadeIn 0.5s ease-in-out 1.5s forwards;
+}
+
+// МОБИЛЬНЫЕ АНИМАЦИИ
+
+.mobileLayoutWrapper.visible {
+  animation: fadeIn 0.5s ease-in-out 0.3s forwards;
+}
+
+.mobileTitle.visible {
+  animation: slideUpMask 0.6s ease-out 0.4s forwards;
+}
+
+.mobileImg.visible {
+  animation: slideDownMask 0.6s ease-out 0.7s forwards;
+}
+
+.mobileDescription.visible {
+  animation: fadeIn 0.5s ease-in-out 1s forwards;
+}
+
+.mobileSubTitleWrapper.visible {
+  animation: slideUpMask 0.6s ease-out 1.2s forwards;
+}
+
+.mobileAnimationTitle.visible {
+  animation: slideUpMask 0.6s ease-out 0.4s forwards;
+}
+
+.mobileTitle.visible {
+  animation: slideUpMask 0.6s ease-out 0.4s forwards;
+}
+
+// ЗЕЛЁНАЯ ЛИНИЯ
+
+// .scrollLine.visible {
+//   clip-path: inset(0 0 0 0);
+//   animation: drawLineFromBottom 2s ease-in-out forwards;
+// }
+
+// @keyframes drawLineFromBottom {
+//   0% {
+//     clip-path: inset(100% 0 0 0);
+//   }
+//   100% {
+//     clip-path: inset(0 0 0 0);
+//   }
+// }

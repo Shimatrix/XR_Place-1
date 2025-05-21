@@ -1,0 +1,323 @@
+@import '../../../assets/styles/_variables.css';
+
+@mixin fade-slide-animation($x: 0, $y: 0) {
+  transition:
+    transform 0.5s ease-out,
+    opacity 0.4s ease-out;
+
+  &--hidden {
+    opacity: 0;
+    transform: translate($x, $y);
+  }
+  &--visible {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@mixin opacity-animation() {
+  transition: opacity 0.5s ease-out;
+
+  &--hidden {
+    opacity: 0;
+  }
+  &--visible {
+    opacity: 1;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.section {
+  box-sizing: border-box;
+  background: #191919;
+  max-width: 1440px;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  padding: 100px 7%;
+  overflow: hidden;
+
+  @media (max-width: 767px) {
+    padding: 27px 20px 60px;
+  }
+
+  &-title {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media (max-width: 767px) {
+      gap: 22px;
+    }
+
+    &__wrap {
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 767px) {
+        flex-direction: column;
+        align-items: normal;
+        gap: 12px;
+      }
+    }
+
+    &__mobile-group {
+      display: flex;
+      align-items: center;
+    }
+
+    &__svg-text {
+      flex-shrink: 0;
+      mix-blend-mode: difference;
+      z-index: 3;
+      @include fade-slide-animation(0, 50px);
+
+      @media (max-width: 767px) {
+        height: 76px;
+      }
+    }
+
+    &__how {
+      width: 463px;
+      margin-inline-end: 44px;
+
+      @media (max-width: 767px) {
+        width: 193px;
+        margin-inline-end: 7px;
+        margin-inline-start: 10px;
+      }
+    }
+    &__it {
+      width: 485px;
+      margin-inline-start: 97px;
+
+      @media (max-width: 767px) {
+        margin-inline-start: 124px;
+        width: 196px;
+      }
+    }
+    &__work {
+      width: 1300px;
+
+      @media (max-width: 767px) {
+        margin-inline-start: 25px;
+        height: 95px;
+        width: 284px;
+      }
+    }
+
+    &__how-en {
+      height: 188px;
+      width: 558px;
+      margin-inline-end: 44px;
+
+      @media (max-width: 767px) {
+        height: 76px;
+        width: 193px;
+        margin-inline-end: 7px;
+        margin-inline-start: 10px;
+      }
+    }
+
+    &__it-en {
+      height: 188px;
+      width: 188px;
+      margin-inline-start: 97px;
+
+      @media (max-width: 767px) {
+        height: 76px;
+        width: 76px;
+        margin-inline-start: 140px;
+      }
+    }
+
+    &__works-en {
+      width: 812px;
+      height: 186px;
+
+      @media (max-width: 767px) {
+        margin-inline-start: 25px;
+        height: 95px;
+        width: 284px;
+      }
+    }
+
+    &__svg-img {
+      height: 105px;
+      flex-shrink: 0;
+      @include fade-slide-animation(-50px, 0);
+
+      @media (max-width: 767px) {
+        height: 76px;
+      }
+    }
+
+    &__ellipse {
+      width: 105px;
+
+      @media (max-width: 767px) {
+        width: 76px;
+      }
+    }
+
+    &__subtract {
+      width: 52.5px;
+
+      @media (max-width: 767px) {
+        width: 38px;
+      }
+    }
+  }
+
+  &__ellipse--green {
+    position: absolute;
+    left: -245px;
+    top: 133px;
+    z-index: 2;
+    @include fade-slide-animation(-50px, 0);
+
+    @media (max-width: 767px) {
+      left: -323px;
+      top: 119px;
+      height: 435px;
+    }
+  }
+
+  &__circle-line {
+    position: absolute;
+    top: 545px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1315px;
+    z-index: 1;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    &--line {
+      height: 1px;
+      background: linear-gradient(to top, #055042, #0bb696);
+      flex-grow: 1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease-out;
+    }
+
+    &--circle {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: linear-gradient(#055042, #0bb696);
+      transform: scale(0);
+      transition: transform 0.3s ease-out 0.5s;
+    }
+
+    &.visible {
+      .section__circle-line--circle {
+        transform: scale(1);
+      }
+      .section__circle-line--line {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  &__how-it-works {
+    font-family: var(--font-inter);
+    font-size: var(--text-xs);
+    line-height: var(--leading-dense);
+    letter-spacing: var(--tracking-wider);
+    margin-block-start: 24px;
+    margin-inline-end: 5px;
+    color: rgb(149, 149, 149);
+    text-align: end;
+    font-weight: 400;
+    text-transform: uppercase;
+    @include opacity-animation();
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__paragraph {
+    position: relative;
+    color: var(--text-white-opacity);
+    font-family: var(--font-helvetica);
+    font-size: var(--text-m);
+    line-height: var(--leading-loose);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-weight: 400;
+    text-transform: uppercase;
+    z-index: 3;
+
+    @media (max-width: 767px) {
+      font-size: var(--text-s);
+      line-height: 1.55;
+      gap: 29px;
+    }
+
+    &__benefit-description {
+      text-align: left;
+      letter-spacing: 0;
+      width: 447px;
+      margin-inline-start: 420px;
+      margin-block-start: 59px;
+      @include opacity-animation();
+
+      @media (max-width: 767px) {
+        margin-block-start: 49px;
+        padding-inline-start: 10px;
+        text-align: right;
+        margin-inline-start: 0;
+        width: 320px;
+      }
+    }
+
+    &__secondary-feature {
+      text-align: left;
+      width: 506px;
+      letter-spacing: 0;
+      margin-inline-start: 211px;
+      @include opacity-animation();
+
+      @media (max-width: 767px) {
+        padding-inline-end: 50px;
+        margin-inline-start: 0;
+        width: 320px;
+      }
+    }
+  }
+
+  &__button {
+    color: var(--text-black);
+    background-color: var(--ui-white);
+    margin-block-start: 57px;
+    width: 1220px;
+    margin-inline-start: 9px;
+    height: 70px;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-block-start: 42px;
+      margin-inline: 0 auto;
+      height: 60px;
+      border-radius: 10px;
+    }
+  }
+}

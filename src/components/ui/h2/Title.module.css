@@ -1,0 +1,64 @@
+@import '../../../assets/styles/_variables.css';
+.container {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: 18.5%;
+}
+
+.label {
+  display: flex;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  border: 1px solid var(--primary, #055042);
+  font-family: 'Helvetica', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 100%; /* 20px */
+  text-transform: uppercase;
+  color: var(--primary, #055042);
+}
+
+.heading {
+  color: var(--text-black, #2d2d2d);
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: -3.84px;
+  text-transform: uppercase;
+  text-align: left;
+  max-width: 610px;
+}
+
+.highlight {
+  color: var(--primary, #055042);
+}
+
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .label {
+    font-style: 'Monrope';
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .heading {
+    color: #2d2d2d;
+    font-size: 24px;
+    letter-spacing: -1px;
+  }
+
+  .highlight {
+    color: #2d2d2d;
+  }
+}
